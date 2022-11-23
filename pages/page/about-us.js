@@ -1,44 +1,6 @@
 import React from "react";
 import CommonLayout from "../../components/shop/common-layout";
 import { Container, Row, Col, Media } from "reactstrap";
-import aboutus from "../../public/assets/images/about/about-us.jpg";
-import avtar from "../../public/assets/images/avtar.jpg";
-import two from "../../public/assets/images/2.jpg";
-import Slider from "react-slick";
-import { Slider2, Slider4 } from "../../services/script";
-import team1 from "../../public/assets/images/team/1.jpg";
-import team2 from "../../public/assets/images/team/2.jpg";
-import team3 from "../../public/assets/images/team/3.jpg";
-import team4 from "../../public/assets/images/team/4.jpg";
-import ServiceLayout from "../../components/common/Service/service1.js";
-
-const TeamData = [
-  {
-    img: '/assets/images/team/1.jpg',
-    name: "Hileri Keol",
-    post: "CEo & Founder At Company",
-  },
-  {
-    img: '/assets/images/team/2.jpg',
-    name: "Hileri Keol",
-    post: "CEo & Founder At Company",
-  },
-  {
-    img: '/assets/images/team/3.jpg',
-    name: "Hileri Keol",
-    post: "CEo & Founder At Company",
-  },
-  {
-    img: '/assets/images/team/4.jpg',
-    name: "Hileri Keol",
-    post: "CEo & Founder At Company",
-  },
-  {
-    img: '/assets/images/team/1.jpg',
-    name: "Hileri Keol",
-    post: "CEo & Founder At Company",
-  },
-];
 
 const Team = ({ img, name, post }) => {
   return (
@@ -52,71 +14,20 @@ const Team = ({ img, name, post }) => {
   );
 };
 
-const TeamDetailData = [
-  {
-    img: '/assets/images/avtar.jpg',
-    name: "mark jenco",
-    post: "designer",
-    about:
-      "you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.",
-  },
-  {
-    img: '/assets/images/2.jpg',
-    name: "mark jenco",
-    post: "designer",
-    about:
-      "you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.",
-  },
-  {
-    img: '/assets/images/avtar.jpg',
-    name: "mark jenco",
-    post: "designer",
-    about:
-      "you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.",
-  },
-  {
-    img: '/assets/images/avtar.jpg',
-    name: "mark jenco",
-    post: "designer",
-    about:
-      "you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.",
-  },
-  {
-    img: '/assets/images/avtar.jpg',
-    name: "mark jenco",
-    post: "designer",
-    about:
-      "you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.",
-  },
-  {
-    img: '/assets/images/avtar.jpg',
-    name: "mark jenco",
-    post: "designer",
-    about:
-      "you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.",
-  },
-];
-
-const TeamDetail = ({ img, name, post, about }) => {
-  return (
-    <div>
-      <div className="media">
-        <div className="text-center">
-          <Media src={img} alt="#" />
-          <h5>{name}</h5>
-          <h6>{post}</h6>
-        </div>
-        <div className="media-body">
-          <p>{about}</p>
-        </div>
-      </div>
-    </div>
-  );
-};
 const AboutUs = () => {
   return (
     <>
       <CommonLayout parent="home" title="About-us">
+        <div
+          style={{
+            width: "100%",
+            backgroundColor: "#9A0201",
+            textAlign: "center",
+            padding: "1rem 0",
+          }}
+        >
+          <h3 style={{ color: "white" }}>關於師園</h3>
+        </div>
         {/* // <!-- about section start --> */}
         <section className="about-page section-b-space">
           <Container>
@@ -124,39 +35,30 @@ const AboutUs = () => {
               <Col lg="12">
                 <div className="banner-section">
                   <Media
-                    src={aboutus.src}
+                    src={"aboutus.src"}
                     className="img-fluid blur-up lazyload"
                     alt=""
                   />
                 </div>
               </Col>
-              <Col sm="12">
-                <h4>
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium
-                </h4>
+              <Col lg="12">
+                <p>-「師園鹹酥雞」老字號新意象 -</p>
                 <p>
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium,
+                  創立40年，師園陪伴著學生、居民，以及慕名而來的饕客走過了一代又一代，當初的學生走到壯年，他們的小孩又成為新的學生，而師園一直在這裡陪大家度過每個歡樂的時光。
                 </p>
                 <p>
-                  On the other hand, we denounce with righteous indignation and
-                  dislike men who are so beguiled and demoralized by the charms
-                  of pleasure of the moment, so blinded by desire, that they
-                  cannot foresee the pain and trouble that are bound to ensue;
-                  and equal blame belongs to those who fail in their duty
-                  through weakness of will, which is the same as saying through
-                  shrinking from toil and pain. These cases are perfectly simple
-                  and easy to distinguish. In a free hour, when our power of
-                  choice is untrammelled and when nothing prevents our being
-                  able to do what we like best, every pleasure is to be welcomed
-                  and every pain avoided. But in certain circumstances and owing
-                  to the claims of duty or the obligations of business it will
-                  frequently occur that pleasures have to be repudiated and
-                  annoyances accepted. The wise man therefore always holds in
-                  these matters to this principle of selection: he rejects
-                  pleasures to secure other greater pleasures, or else he
-                  endures pains to avoid worse pains.
+                  師園總是走在最前面，為了帶來既美味又方便的服務，從現場白紙點餐到方便的線上點餐系統、陸續歷經展店、推出聯名T恤及全球第一個鹹酥雞NFT，現在師園結合
+                  SaltLab
+                  帶來更加便利的線上商城，讓大家透過「師園宇宙線上商城」不用走出門就能享受到第一手的美味。
+                </p>
+                <br />
+                <p>- 突破框架，大膽嘗試 -</p>
+                <p>
+                  謝老闆曾說：「我們可以大膽嘗試，因為不嘗試打破框架，就沒辦法生存。」
+                  師園又將趣味轉化成價值，攜手SaltLab
+                  打造「師園宇宙線上商城」，一個結合區塊鏈科技且支援台幣付款同時兼容
+                  NFT
+                  以及加密貨幣支付等特性的複合式商城，讓消費者可以在享受鹽酥雞的過程中同時體驗區塊鏈科技帶來的革新，陪伴大家從紙本到網路，與大家一同邁向師元宇宙的世界！
                 </p>
               </Col>
             </Row>
@@ -165,60 +67,8 @@ const AboutUs = () => {
 
         {/* <!--Testimonial start--> */}
         <section className="testimonial small-section">
-          <Container>
-            <Row>
-              <Col sm="12">
-                <Slider
-                  {...Slider2}
-                  className="slide-2 testimonial-slider no-arrow"
-                >
-                  {TeamDetailData.map((data, i) => {
-                    return (
-                      <TeamDetail
-                        key={i}
-                        img={data.img}
-                        name={data.name}
-                        post={data.post}
-                        about={data.about}
-                      />
-                    );
-                  })}
-                </Slider>
-              </Col>
-            </Row>
-          </Container>
+          <Container></Container>
         </section>
-        {/* <!--Testimonial ends--> */}
-
-        {/* <!--Team start--> */}
-        <section id="team" className="team section-b-space ratio_asos">
-          <Container>
-            <Row>
-              <Col sm="12">
-                <h2>Our Team</h2>
-                <Slider className="team-4" {...Slider4}>
-                  {TeamData.map((data, i) => {
-                    return (
-                      <Team
-                        key={i}
-                        img={data.img}
-                        name={data.name}
-                        post={data.post}
-                      />
-                    );
-                  })}
-                </Slider>
-              </Col>
-            </Row>
-          </Container>
-        </section>
-        {/* <!--Team ends--> */}
-
-        <div className="section-b-space">
-          <ServiceLayout
-            sectionClass={"service border-section small-section"}
-          />
-        </div>
       </CommonLayout>
     </>
   );

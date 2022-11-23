@@ -1,5 +1,4 @@
 import React from "react";
-import Banner from "./layouts/Fashion/Components/Banner";
 import CollectionBanner from "./layouts/Fashion/Components/Collection-Banner";
 import TopCollection from "../components/common/Collections/Collection3";
 import Parallax from "./layouts/Fashion/Components/Parallax";
@@ -20,11 +19,14 @@ const Fashion = () => {
     <>
       <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/x-icon" href={"/assets/images/favicon/1.png"} />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href={"/assets/images/favicon/1.png"}
+        />
       </Helmet>
       <ModalComponent />
       <HeaderOne logoName={"logo.png"} topClass="top-header" />
-      <Banner />
       <CollectionBanner />
       <Paragraph
         title="title1 section-t-space"

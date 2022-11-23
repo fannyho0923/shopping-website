@@ -39,59 +39,26 @@ const MasterFooter = ({
     window.addEventListener("resize", changeCollapse);
 
     return () => {
-      window.removeEventListener('resize', changeCollapse)
-    }
-
+      window.removeEventListener("resize", changeCollapse);
+    };
   }, []);
   return (
     <div>
       <footer className={footerClass}>
-        {newLatter ? (
-          <div className={footerLayOut}>
-            <Container fluid={containerFluid ? containerFluid : ""}>
-              <section className={footerSection}>
-                <Row>
-                  <Col lg="6">
-                    <div className="subscribe">
-                      <div>
-                        <h4>KNOW IT ALL FIRST!</h4>
-                        <p>
-                          Never Miss Anything From Multikart By Signing Up To
-                          Our Newsletter.
-                        </p>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col lg="6">
-                    <Form className="form-inline subscribe-form">
-                      <div className="mx-sm-3">
-                        <Input
-                          type="text"
-                          className="form-control"
-                          id="exampleFormControlInput1"
-                          placeholder="Enter your email"
-                        />
-                      </div>
-                      <Button type="submit" className="btn btn-solid">
-                        subscribe
-                      </Button>
-                    </Form>
-                  </Col>
-                </Row>
-              </section>
-            </Container>
-          </div>
-        ) : (
-          ""
-        )}
-
         <section className={belowSection}>
           <Container fluid={belowContainerFluid ? belowContainerFluid : ""}>
-            <Row className="footer-theme partition-f">
+            <Row
+              className="footer-theme partition-f"
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
               <Col lg="4" md="6">
                 <div
-                  className={`footer-title ${isOpen && collapse == 1 ? "active" : ""
-                    } footer-mobile-title`}
+                  className={`footer-title ${
+                    isOpen && collapse == 1 ? "active" : ""
+                  } footer-mobile-title`}
                 >
                   <h4
                     onClick={() => {
@@ -134,11 +101,6 @@ const MasterFooter = ({
                           </a>
                         </li>
                         <li>
-                          <a href="https://twitter.com" target="_blank">
-                            <i className="fa fa-twitter" aria-hidden="true"></i>
-                          </a>
-                        </li>
-                        <li>
                           <a href="https://www.instagram.com" target="_blank">
                             <i
                               className="fa fa-instagram"
@@ -146,112 +108,20 @@ const MasterFooter = ({
                             ></i>
                           </a>
                         </li>
-                        <li>
-                          <a href="https://rss.com" target="_blank">
-                            <i className="fa fa-rss" aria-hidden="true"></i>
-                          </a>
-                        </li>
                       </ul>
                     </div>
                   </div>
                 </Collapse>
               </Col>
-              <Col className="offset-xl-1">
-                <div className="sub-title">
-                  <div
-                    className={`footer-title ${isOpen && collapse == 2 ? "active" : ""
-                      } `}
-                  >
-                    <h4
-                      onClick={() => {
-                        if (width) {
-                          setIsOpen(!isOpen);
-                          setCollapse(2);
-                        } else setIsOpen(true);
-                      }}
-                    >
-                      my account
-                      <span className="according-menu"></span>
-                    </h4>
-                  </div>
-                  <Collapse
-                    isOpen={width ? (collapse === 2 ? isOpen : false) : true}
-                  >
-                    <div className="footer-contant">
-                      <ul>
-                        <li>
-                          <Link href={`/shop/left_sidebar`}>
-                            <a>womens</a>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href={`/shop/left_sidebar`}>
-                            <a> clothing </a>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href={`/shop/left_sidebar`}>
-                            <a>accessories</a>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href={`/shop/left_sidebar`}>
-                            <a> featured </a>
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </Collapse>
-                </div>
-              </Col>
               <Col>
-                <div className="sub-title">
+                <div
+                  className="sub-title"
+                  style={{ width: "fit-content", float: "right" }}
+                >
                   <div
-                    className={`footer-title ${isOpen && collapse == 3 ? "active" : ""
-                      } `}
-                  >
-                    <h4
-                      onClick={() => {
-                        if (width) {
-                          setIsOpen(!isOpen);
-                          setCollapse(3);
-                        } else setIsOpen(true);
-                      }}
-                    >
-                      why we choose
-                      <span className="according-menu"></span>
-                    </h4>
-                  </div>
-                  <Collapse
-                    isOpen={width ? (collapse === 3 ? isOpen : false) : true}
-                  >
-                    <div className="footer-contant">
-                      <ul>
-                        <li>
-                          <a href="#">shipping & return</a>
-                        </li>
-                        <li>
-                          <a href="#">secure shopping</a>
-                        </li>
-                        <li>
-                          <a href="#">gallary</a>
-                        </li>
-                        <li>
-                          <a href="#">affiliates</a>
-                        </li>
-                        <li>
-                          <a href="#">contacts</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </Collapse>
-                </div>
-              </Col>
-              <Col>
-                <div className="sub-title">
-                  <div
-                    className={`footer-title ${isOpen && collapse == 4 ? "active" : ""
-                      } `}
+                    className={`footer-title ${
+                      isOpen && collapse == 4 ? "active" : ""
+                    } `}
                   >
                     <h4
                       onClick={() => {
@@ -268,21 +138,47 @@ const MasterFooter = ({
                   <Collapse
                     isOpen={width ? (collapse === 4 ? isOpen : false) : true}
                   >
-                    <div className="footer-contant">
+                    <div
+                      className="footer-contant"
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                    >
                       <ul className="contact-list">
                         <li>
-                          <i className="fa fa-map-marker"></i>Multikart Demo
-                          Store, Demo store India 345-659
+                          <i className="fa fa-map-marker"></i>師園鹽酥雞(師大)
                         </li>
                         <li>
-                          <i className="fa fa-phone"></i>Call Us: 123-456-7898
+                          <i className="fa fa-phone"></i>Tel: 02 2363 3999
                         </li>
                         <li>
-                          <i className="fa fa-envelope-o"></i>Email Us:{" "}
-                          <a href="#">Support@Fiot.com</a>
+                          <i className="fa fa-envelope-o"></i>Order:{" "}
+                          <a href="#">Uber eat</a>
                         </li>
                         <li>
-                          <i className="fa fa-fax"></i>Fax: 123456
+                          <i className="fa fa-map-marker"></i>台北市大安區
+                          師大路39巷14號
+                        </li>
+                      </ul>
+                      <ul
+                        className="contact-list"
+                        style={{ marginLeft: "1rem" }}
+                      >
+                        <li>
+                          <i className="fa fa-map-marker"></i>師園鹽酥雞
+                          (西門店)
+                        </li>
+                        <li>
+                          <i className="fa fa-phone"></i>Tel: 02 2314 3966
+                        </li>
+                        <li>
+                          <i className="fa fa-envelope-o"></i>Order:{" "}
+                          <a href="#">Uber eat</a>
+                        </li>
+                        <li>
+                          <i className="fa fa-map-marker"></i>台北市萬華區
+                          成都路28號
                         </li>
                       </ul>
                     </div>
