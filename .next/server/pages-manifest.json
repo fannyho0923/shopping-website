@@ -2,5 +2,10 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/page/account/contact": "pages/page/account/contact.js"
+  "/": "pages/index.js",
+  "/page/account/contact": "pages/page/account/contact.js",
+  "/page/about-us": "pages/page/about-us.js",
+  "/404": "pages/404.js",
+  "/product-details/thumbnail_outside": "pages/product-details/thumbnail_outside.js",
+  "/layouts/Vegetables": "pages/layouts/Vegetables.js"
 }
