@@ -24,11 +24,16 @@ const Bags = () => {
     <Fragment>
       <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/x-icon" href={"/assets/images/favicon/3.png"} />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href={"/assets/images/favicon/3.png"}
+        />
       </Helmet>
       <div className="bg-white">
         <ModalComponent />
         <HeaderOne
+          noTopBar={true}
           logoName={"layout3/logo.png"}
           direction="top"
           topClass="top-header top-header-dark2"

@@ -17,7 +17,7 @@ const Fashion3 = () => {
   return (
     <>
       <ModalComponent />
-      <HeaderOne logoName={"logo.png"} topClass="top-header" />
+      <HeaderOne noTopBar={true} logoName={"logo.png"} topClass="top-header" />
       <HomeSlider />
       <div className="container box-layout bg-image">
         <section className="section-b-space ratio_asos">

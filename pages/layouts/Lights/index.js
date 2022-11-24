@@ -12,7 +12,11 @@ const Lights = () => {
   return (
     <Fragment>
       <ModalComponent />
-      <HeaderOne logoName={"logo.png"} topClass="top-header top-header-dark3" />
+      <HeaderOne
+        noTopBar={true}
+        logoName={"logo.png"}
+        topClass="top-header top-header-dark3"
+      />
       <Banner />
       <MasonryProduct type="light" cartClass="cart-info cart-wrap" />
       <MasterFooter

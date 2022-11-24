@@ -25,13 +25,17 @@ const Vedioslider = () => {
     <Fragment>
       <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/x-icon" href={"/assets/images/favicon/10.png"} />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href={"/assets/images/favicon/10.png"}
+        />
       </Helmet>
       <ModalComponent />
       <HeaderOne
         logoName="logo/17.png"
         headerClass="video-header"
-        noTopBar={false}
+        noTopBar={true}
         topClass="top-header"
       />
       <HomeSlider />

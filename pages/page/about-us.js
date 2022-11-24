@@ -1,18 +1,7 @@
 import React from "react";
 import CommonLayout from "../../components/shop/common-layout";
 import { Container, Row, Col, Media } from "reactstrap";
-
-const Team = ({ img, name, post }) => {
-  return (
-    <div>
-      <div>
-        <Media src={img} className="img-fluid blur-up lazyload bg-img" alt="" />
-      </div>
-      <h4>{name}</h4>
-      <h6>{post}</h6>
-    </div>
-  );
-};
+import contactLogo from "../../public/assets/images/logos/contactLogo.png";
 
 const AboutUs = () => {
   return (
@@ -23,7 +12,7 @@ const AboutUs = () => {
             width: "100%",
             backgroundColor: "#9A0201",
             textAlign: "center",
-            padding: "1rem 0",
+            padding: "1rem",
           }}
         >
           <h3 style={{ color: "white" }}>關於師園</h3>
@@ -31,17 +20,17 @@ const AboutUs = () => {
         {/* // <!-- about section start --> */}
         <section className="about-page section-b-space">
           <Container>
-            <Row>
-              <Col lg="12">
-                <div className="banner-section">
+            <Row className="p-4">
+              <Col>
+                <div style={{ backgroundColor: "red" }}>
                   <Media
-                    src={"aboutus.src"}
+                    src={contactLogo.src}
                     className="img-fluid blur-up lazyload"
                     alt=""
                   />
                 </div>
               </Col>
-              <Col lg="12">
+              <Col>
                 <p>-「師園鹹酥雞」老字號新意象 -</p>
                 <p>
                   創立40年，師園陪伴著學生、居民，以及慕名而來的饕客走過了一代又一代，當初的學生走到壯年，他們的小孩又成為新的學生，而師園一直在這裡陪大家度過每個歡樂的時光。

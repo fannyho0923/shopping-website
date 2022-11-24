@@ -21,10 +21,15 @@ const Marketplace = () => {
     <Fragment>
       <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/x-icon" href={"/assets/images/favicon/9.png"} />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href={"/assets/images/favicon/9.png"}
+        />
       </Helmet>
       <ModalComponent />
       <HeaderOne
+        noTopBar={true}
         logoName={"logo/18.png"}
         headerClass="marketplace"
         topClass="top-header"

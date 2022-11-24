@@ -15,7 +15,11 @@ const CheckoutPage = () => {
   const symbol = curContext.state.symbol;
   const [obj, setObj] = useState({});
   const [payment, setPayment] = useState("stripe");
-  const { register, handleSubmit, formState: { errors } } = useForm(); // initialise the hook
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm(); // initialise the hook
   const router = useRouter();
 
   const checkhandle = (value) => {
@@ -57,7 +61,7 @@ const CheckoutPage = () => {
                         type="text"
                         className={`${errors.firstName ? "error_border" : ""}`}
                         name="first_name"
-                        {...register('first_name', { required: true })}
+                        {...register("first_name", { required: true })}
                       />
                       <span className="error-message">
                         {errors.firstName && "First name is required"}
@@ -69,7 +73,7 @@ const CheckoutPage = () => {
                         type="text"
                         className={`${errors.last_name ? "error_border" : ""}`}
                         name="last_name"
-                        {...register('last_name', { required: true })}
+                        {...register("last_name", { required: true })}
                       />
                       <span className="error-message">
                         {errors.last_name && "Last name is required"}
@@ -81,7 +85,7 @@ const CheckoutPage = () => {
                         type="text"
                         name="phone"
                         className={`${errors.phone ? "error_border" : ""}`}
-                        {...register('phone', { pattern: /\d+/ })}
+                        {...register("phone", { pattern: /\d+/ })}
                       />
                       <span className="error-message">
                         {errors.phone && "Please enter number for phone."}
@@ -94,7 +98,7 @@ const CheckoutPage = () => {
                         className={`${errors.email ? "error_border" : ""}`}
                         type="text"
                         name="email"
-                        {...register('email', {
+                        {...register("email", {
                           required: true,
                           pattern: /^\S+@\S+$/i,
                         })}
@@ -105,7 +109,10 @@ const CheckoutPage = () => {
                     </div>
                     <div className="form-group col-md-12 col-sm-12 col-xs-12">
                       <div className="field-label">Country</div>
-                      <select name="country" {...register("country", { required: true })}>
+                      <select
+                        name="country"
+                        {...register("country", { required: true })}
+                      >
                         <option>India</option>
                         <option>South Africa</option>
                         <option>United State</option>
@@ -119,7 +126,11 @@ const CheckoutPage = () => {
                         className={`${errors.address ? "error_border" : ""}`}
                         type="text"
                         name="address"
-                        {...register("address", { required: true, min: 20, max: 120 })}
+                        {...register("address", {
+                          required: true,
+                          min: 20,
+                          max: 120,
+                        })}
                         placeholder="Street address"
                       />
                       <span className="error-message">
@@ -133,7 +144,7 @@ const CheckoutPage = () => {
                         type="text"
                         className={`${errors.city ? "error_border" : ""}`}
                         name="city"
-                        {...register('city', { required: true })}
+                        {...register("city", { required: true })}
                         onChange={setStateFromInput}
                       />
                       <span className="error-message">
@@ -147,7 +158,7 @@ const CheckoutPage = () => {
                         type="text"
                         className={`${errors.state ? "error_border" : ""}`}
                         name="state"
-                        {...register('state', { required: true })}
+                        {...register("state", { required: true })}
                         onChange={setStateFromInput}
                       />
                       <span className="error-message">
@@ -161,7 +172,7 @@ const CheckoutPage = () => {
                         type="text"
                         name="pincode"
                         className={`${errors.pincode ? "error_border" : ""}`}
-                        {...register('pincode', { pattern: /\d+/ })}
+                        {...register("pincode", { pattern: /\d+/ })}
                       />
                       <span className="error-message">
                         {errors.pincode && "Required integer"}
@@ -287,13 +298,16 @@ const CheckoutPage = () => {
                               <PayPalButton
                                 amount="0.01"
                                 onSuccess={(details, data) => {
-                                  alert("Transaction completed by " + details.payer.name.given_name);
+                                  alert(
+                                    "Transaction completed by " +
+                                      details.payer.name.given_name
+                                  );
 
                                   return fetch("/paypal-transaction-complete", {
                                     method: "post",
                                     body: JSON.stringify({
-                                      orderID: data.orderID
-                                    })
+                                      orderID: data.orderID,
+                                    }),
                                   });
                                 }}
                               />

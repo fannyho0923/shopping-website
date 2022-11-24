@@ -9,7 +9,7 @@ const Lookbook = () => {
   });
   return (
     <>
-      <HeaderOne topClass="top-header" logoName="logo.png" />
+      <HeaderOne noTopBar={true} topClass="top-header" logoName="logo.png" />
       <LookbookSection />
       <MasterFooter
         footerClass={`footer-light`}

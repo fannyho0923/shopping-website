@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import Link from "next/link";
 import CartContext from "../../../../helpers/cart";
-import { Container, Row, Col, Media, Input } from "reactstrap";
+import { Container, Row, Col, Media, Input, Button } from "reactstrap";
 import { CurrencyContext } from "../../../../helpers/Currency/CurrencyContext";
 import cart from "../../../../public/assets/images/icon-empty-cart.png";
 
@@ -44,9 +44,110 @@ const CartPage = () => {
     }
   };
 
+  const arr = [
+    {
+      id: 1,
+      title: "trim dress",
+      description:
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
+      type: "fashion",
+      brand: "nike",
+      collection: ["new products"],
+      category: "Women",
+      price: 145,
+      sale: true,
+      discount: "40",
+      stock: 5,
+      new: true,
+      tags: ["new", "s", "m", "yellow", "white", "pink", "nike"],
+      variants: [
+        {
+          variant_id: 101,
+          id: 1.1,
+          sku: "sku1",
+          size: "s",
+          color: "yellow",
+          image_id: 111,
+        },
+        {
+          variant_id: 102,
+          id: 1.2,
+          sku: "sku2",
+          size: "s",
+          color: "white",
+          image_id: 112,
+        },
+        {
+          variant_id: 103,
+          id: 1.3,
+          sku: "sku3",
+          size: "s",
+          color: "pink",
+          image_id: 113,
+        },
+        {
+          variant_id: 104,
+          id: 1.4,
+          sku: "sku4",
+          size: "m",
+          color: "yellow",
+          image_id: 111,
+        },
+        {
+          variant_id: 105,
+          id: 1.5,
+          sku: "sku5",
+          size: "m",
+          color: "white",
+          image_id: 112,
+        },
+        {
+          variant_id: 106,
+          id: 1.6,
+          sku: "sku5",
+          size: "m",
+          color: "pink",
+          image_id: 113,
+        },
+        {
+          variant_id: 107,
+          id: 1.7,
+          sku: "sku1",
+          size: "l",
+          color: "yellow",
+          image_id: 111,
+        },
+      ],
+      images: [
+        {
+          image_id: 111,
+          id: 1.1,
+          alt: "yellow",
+          src: "/assets/images/pro3/39.jpg",
+          variant_id: [101, 104],
+        },
+        {
+          image_id: 112,
+          id: 1.2,
+          alt: "white",
+          src: "/assets/images/pro3/6.jpg",
+          variant_id: [102, 105],
+        },
+        {
+          image_id: 113,
+          id: 1.3,
+          alt: "pink",
+          src: "/assets/images/pro3/25.jpg",
+          variant_id: [103, 106],
+        },
+      ],
+    },
+  ];
+
   return (
     <div>
-      {cartItems && cartItems.length > 0 ? (
+      {/* {cartItems && cartItems.length > 0 ? ( */}
+      {arr && arr.length > 0 ? (
         <section className="cart-section section-b-space">
           <Container>
             <Row>
@@ -54,18 +155,23 @@ const CartPage = () => {
                 <table className="table cart-table table-responsive-xs">
                   <thead>
                     <tr className="table-head">
-                      <th scope="col">image</th>
-                      <th scope="col">product name</th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
                       <th scope="col">price</th>
                       <th scope="col">quantity</th>
-                      <th scope="col">action</th>
                       <th scope="col">total</th>
                     </tr>
                   </thead>
-                  {cartItems.map((item, index) => {
+                  {arr.map((item, index) => {
                     return (
                       <tbody key={index}>
                         <tr>
+                          <td>
+                            <i
+                              className="fa fa-times"
+                              onClick={() => removeFromCart(item)}
+                            ></i>
+                          </td>
                           <td>
                             <Link href={`/left-sidebar/product/` + item.id}>
                               <a>
@@ -123,12 +229,12 @@ const CartPage = () => {
                               </div>
                             </div>
                           </td>
-                          <td>
+                          {/* <td>
                             <h2>
                               {symbol}
                               {item.price - (item.price * item.discount) / 100}
                             </h2>
-                          </td>
+                          </td> */}
                           <td>
                             <div className="qty-box">
                               <div className="input-group">
@@ -147,12 +253,6 @@ const CartPage = () => {
                               </div>
                             </div>
                             {item.qty >= item.stock ? "out of Stock" : ""}
-                          </td>
-                          <td>
-                            <i
-                              className="fa fa-times"
-                              onClick={() => removeFromCart(item)}
-                            ></i>
                           </td>
                           <td>
                             <h2 className="td-color">
@@ -180,9 +280,19 @@ const CartPage = () => {
               </Col>
             </Row>
             <Row className="cart-buttons">
-              <Col xs="6">
+              <Col style={{ display: "flex", flexDirection: "column" }}>
                 <Link href={`/shop/left_sidebar`}>
-                  <a className="btn btn-solid">continue shopping</a>
+                  <a style={{ width: "fit-content" }} className="btn btn-solid">
+                    continue shopping
+                  </a>
+                </Link>
+                <Link href={`/shop/left_sidebar`}>
+                  <Button
+                    style={{ width: "fit-content", marginTop: "1rem" }}
+                    className="btn btn-solid rounded"
+                  >
+                    連結錢包
+                  </Button>
                 </Link>
               </Col>
               <Col xs="6">

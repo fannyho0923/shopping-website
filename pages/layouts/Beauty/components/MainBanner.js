@@ -48,7 +48,11 @@ const MainBanner = () => {
   return (
     <Fragment>
       <title>MultiKart | Beauty Store</title>
-      <HeaderOne logoName={"layout3/logo.png"} topClass="top-header" />
+      <HeaderOne
+        noTopBar={true}
+        logoName={"layout3/logo.png"}
+        topClass="top-header"
+      />
       <section className="p-0">
         <Slider className="slide-1 home-slider">
           {Data.map((data, i) => {

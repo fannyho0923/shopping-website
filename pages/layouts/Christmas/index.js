@@ -16,21 +16,24 @@ import LogoBlock from "../../../components/common/logo-block";
 import MasterFooter from "../../../components/footers/common/MasterFooter";
 
 const Christmas = () => {
-
-
   useEffect(() => {
     document.documentElement.style.setProperty("--theme-deafult", "#ff4c3b");
-    document.body.classList.add("christmas")  
+    document.body.classList.add("christmas");
   });
   return (
     <Fragment>
       <div className="christmas">
         <Helmet>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="icon" type="image/x-icon" href={"/assets/images/favicon/1.png"} />
+          <link
+            rel="icon"
+            type="image/x-icon"
+            href={"/assets/images/favicon/1.png"}
+          />
         </Helmet>
         <ModalComponent />
         <HeaderOne
+          noTopBar={true}
           logoName={"logo/f5.png"}
           topClass="top-header"
           headerClass="header-christmas video-header"

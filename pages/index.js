@@ -26,7 +26,7 @@ const Fashion = () => {
         />
       </Helmet>
       <ModalComponent />
-      <HeaderOne logoName={"logo.png"} topClass="top-header" />
+      <HeaderOne noTopBar={true} logoName={"logo.png"} topClass="top-header" />
       <CollectionBanner />
       <Paragraph
         title="title1 section-t-space"

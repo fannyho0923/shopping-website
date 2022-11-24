@@ -6,7 +6,7 @@ export const MENUITEMS = [
   {
     title: "Menu",
     type: "link",
-    path: "/layouts/Vegetables",
+    path: "/page/menu",
   },
   {
     title: "Products",
@@ -116,5 +116,18 @@ export const MENUITEMS = [
     title: "Contact",
     type: "link",
     path: "/page/account/contact",
+    children: [{ path: "/page/account/cart", title: "cart", type: "link" }],
+  },
+  {
+    title: "cart",
+    type: "link",
+    path: "/page/account/cart",
+    // children: [{ path: "/page/account/cart", title: "cart", type: "link" }],
+  },
+  {
+    title: "checkout",
+    type: "link",
+    path: "/page/account/checkout",
+    // children: [{ path: "/page/account/cart", title: "cart", type: "link" }],
   },
 ];

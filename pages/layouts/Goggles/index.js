@@ -21,10 +21,18 @@ const Goggles = () => {
     <Fragment>
       <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/x-icon" href={"/assets/images/favicon/8.png"} />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href={"/assets/images/favicon/8.png"}
+        />
       </Helmet>
       <ModalComponent />
-      <HeaderOne logoName={"logo/4.png"} topClass="top-header" />
+      <HeaderOne
+        noTopBar={true}
+        logoName={"logo/4.png"}
+        topClass="top-header"
+      />
       <Banner />
       <ServiceLayout
         sectionClass={"service border-section small-section border-top-0"}

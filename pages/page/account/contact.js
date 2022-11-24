@@ -1,45 +1,46 @@
 import React from "react";
 import CommonLayout from "../../../components/shop/common-layout";
 import { Container, Row, Col, Media, Form, Label, Input } from "reactstrap";
+import contactLogo from "../../../public/assets/images/logos/contactLogo.png";
 
-const Data = [
-  {
-    img: "fa-phone",
-    title: "Contact us",
-    desc1: "+91 123 - 456 - 7890",
-    desc2: "+86 163 - 451 - 7894",
-  },
-  {
-    img: "fa-map-marker",
-    title: "ADDRESS",
-    desc1: "ABC Complex,Near xyz, New York",
-    desc2: "USA 123456",
-  },
-  {
-    img: "fa-envelope-o",
-    title: "ADDRESS",
-    desc1: "Support@Shopcart.com",
-    desc2: "info@shopcart.com",
-  },
-  {
-    img: "fa-fax",
-    title: "fax",
-    desc1: "Support@Shopcart.com",
-    desc2: "info@shopcart.com",
-  },
-];
-
-const ContactDetail = ({ img, title, children }) => {
+const ContactDetail = ({ children }) => {
   return (
-    <div style={{ display: "flex", width: "100%", backgroundColor: "" }}>
-      <div className="contact-icon">
-        <img
-          style={{ width: "auto" }}
-          src="https://d31pvszaz82ppm.cloudfront.net/2a0d0dd2-7f46-406d-8935-f11d1cfa85f8_480.jpg"
-        />
+    <li style={{ display: "flex", width: "100%" }}>
+      <div
+        className="contact-icon"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          borderRight: "1px solid #ddd",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "auto",
+          }}
+        >
+          <Media style={{ width: "80%" }} src={contactLogo.src} />
+        </div>
       </div>
-      <div className="media-body">{children}</div>
-    </div>
+      <div
+        className="media-body"
+        style={{
+          padding: "4rem",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <h4 style={{ color: "#9a0201", fontWeight: "bold" }}>合作聯絡</h4>
+        <h6 style={{ color: "#9a0201" }}>歡迎留下您的資訊</h6>
+        {children}
+      </div>
+    </li>
   );
 };
 const Contact = () => {
@@ -48,61 +49,119 @@ const Contact = () => {
       <section className="contact-page section-b-space">
         <Container>
           <Row className="section-b-space">
-            <ContactDetail title={"logo"}>
+            <ContactDetail title={"logofghjkkjhj"}>
               <div
-                className="rounded p-4"
-                style={{ backgroundColor: "#9a0201" }}
+                className="rounded"
+                style={{
+                  backgroundColor: "#9a0201",
+                  width: "90%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  padding: "4rem",
+                }}
               >
-                <Form className="theme-form">
-                  <Row>
-                    <Col md="6">
-                      <Label className="form-label" for="name">
-                        First Name
+                <Form
+                  className="theme-form"
+                  style={{
+                    width: "100%",
+                  }}
+                >
+                  <Row
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <Col style={{ display: "flex", marginBottom: "2rem" }}>
+                      <Label
+                        className="form-label"
+                        for="name"
+                        style={{
+                          whiteSpace: "nowrap",
+                          color: "white",
+                          margin: "auto",
+                        }}
+                      >
+                        姓名：
                       </Label>
                       <Input
                         type="text"
-                        className="form-control"
+                        className="form-control rounded"
                         id="name"
                         placeholder="Enter Your name"
                         required=""
+                        style={{ margin: "auto" }}
                       />
                     </Col>
-                    <Col md="6">
-                      <Label className="form-label" for="email">
-                        Email
+                    <Col style={{ display: "flex", marginBottom: "2rem" }}>
+                      <Label
+                        className="form-label"
+                        for="email"
+                        style={{
+                          whiteSpace: "nowrap",
+                          color: "white",
+                          margin: "auto",
+                        }}
+                      >
+                        信箱：
                       </Label>
                       <Input
                         type="text"
-                        className="form-control"
+                        className="form-control rounded"
                         id="email"
                         placeholder="Email"
                         required=""
+                        style={{ margin: "auto" }}
                       />
                     </Col>
-                    <Col md="6">
-                      <Label className="form-label" for="review">
-                        Phone number
+                    <Col
+                      style={{
+                        display: "flex",
+                        marginBottom: "2rem",
+                      }}
+                    >
+                      <Label
+                        className="form-label"
+                        for="review"
+                        style={{
+                          whiteSpace: "nowrap",
+                          color: "white",
+                        }}
+                      >
+                        手機：
                       </Label>
                       <Input
                         type="text"
-                        className="form-control"
+                        className="form-control rounded"
                         id="review"
                         placeholder="Enter your number"
                         required=""
+                        style={{ margin: "auto" }}
                       />
                     </Col>
-                    <Col md="12">
-                      <Label className="form-label" for="review">
-                        Write Your Message
+                    <Col style={{ display: "flex", marginBottom: "2rem" }}>
+                      <Label
+                        className="form-label rounded"
+                        for="review"
+                        style={{ whiteSpace: "nowrap", color: "white" }}
+                      >
+                        留言：
                       </Label>
                       <textarea
-                        className="form-control"
+                        className="form-control rounded"
                         placeholder="Write Your Message"
                         id="exampleFormControlTextarea1"
                         rows="6"
                       ></textarea>
                     </Col>
-                    <Col md="12">
+                    <Col
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
                       <button className="btn btn-solid" type="submit">
                         Send Your Message
                       </button>
@@ -111,9 +170,6 @@ const Contact = () => {
                 </Form>
               </div>
             </ContactDetail>
-          </Row>
-          <Row>
-            <Col sm="12"></Col>
           </Row>
         </Container>
       </section>
