@@ -4,7 +4,8 @@ import SideBar from "./common/sidebar";
 import Cart from "../containers/Cart";
 import CartContainer from "../containers/CartContainer";
 import TopBarDark from "./common/topbar-dark";
-import { Media, Container, Row, Col } from "reactstrap";
+import { Button, Media, Container, Row, Col } from "reactstrap";
+import foxLogo from "../../public/assets/images/logos/foxLogo.png";
 import LogoImage from "./common/logo";
 import search from "../../public/assets/images/icon/search.png";
 import settings from "../../public/assets/images/icon/setting.png";
@@ -25,6 +26,7 @@ const HeaderOne = ({
   /*=====================
      Pre loader
      ==========================*/
+  const [isConnected, setIsConnected] = useState(false);
   useEffect(() => {
     setTimeout(function () {
       document.querySelectorAll(".loader-wrapper").style = "display:none";
@@ -131,6 +133,37 @@ const HeaderOne = ({
                         ) : (
                           <Cart layout={direction} icon={cart.src} />
                         )}
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          <Button
+                            class="rounded"
+                            style={{
+                              position: "relative",
+                              background: "Button",
+                              backgroundColor: "#d9d9d9",
+                              color: "black",
+                              border: "0",
+                              paddingLeft: "1.5rem",
+                            }}
+                            onClick={() => setIsConnected(!isConnected)}
+                          >
+                            <img
+                              style={{
+                                position: "absolute",
+                                left: "-30%",
+                                top: isConnected ? "-40%" : "-35%",
+                                width: "50%",
+                              }}
+                              src={foxLogo.src}
+                            />
+                            {isConnected ? "0xbb...e1Be" : "連結錢包"}
+                          </Button>
+                        </div>
                       </ul>
                     </div>
                   </div>

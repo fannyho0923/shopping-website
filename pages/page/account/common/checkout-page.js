@@ -150,7 +150,6 @@ const CheckoutPage = () => {
             <Form onSubmit={handleSubmit(onSubmit)}>
               <Row>
                 <Col lg="6" sm="12" xs="12">
-                  <div>123</div>
                   <div className="row check-out">
                     <div style={{ display: "flex" }} className="form-group">
                       <div className="field-label">取貨方式</div>

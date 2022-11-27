@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import Link from "next/link";
 import CartContext from "../../../../helpers/cart";
+import hotProductLogo from "../../../../public/assets/images/logos/hotProductLogo.png";
 import { Container, Row, Col, Media, Input, Button } from "reactstrap";
 import { CurrencyContext } from "../../../../helpers/Currency/CurrencyContext";
 import cart from "../../../../public/assets/images/icon-empty-cart.png";
@@ -14,8 +15,15 @@ const CartPage = () => {
   const removeFromCart = context.removeFromCart;
   const [quantity, setQty] = useState(1);
   const [quantityError, setQuantityError] = useState(false);
+  const [count, setCount] = useState(0);
   const updateQty = context.updateQty;
 
+  const handleCount = (i) => {
+    if (count <= 0 && i < 1) {
+      return setCount(0);
+    }
+    setCount(count + i);
+  };
   const handleQtyUpdate = (item, quantity) => {
     if (quantity >= 1) {
       setQuantityError(false);
@@ -267,21 +275,7 @@ const CartPage = () => {
                   </thead>
                   {arr.map((item, index) => {
                     return (
-                      // <div
-                      //   style={{
-                      //     backgroundColor: "gray",
-                      //     // display: "flex",
-                      //     // flexDirection: "column",
-                      //   }}
-                      // >
-                      <tbody
-                        style={
-                          {
-                            // backgroundColor: "pink",
-                          }
-                        }
-                        key={index}
-                      >
+                      <tbody key={index}>
                         <tr>
                           {/* 刪除 */}
                           <td>
@@ -384,32 +378,23 @@ const CartPage = () => {
                             </h2>
                           </td>
                         </tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <table className="table cart-table table-responsive-md">
-                          <tfoot>
-                            <tr>
-                              <td
-                                style={{
-                                  display: "flex",
-                                  justifyContent: "space-between",
-                                }}
-                              >
-                                <div>小計 :</div>
-
-                                <h2>
-                                  {symbol} {total}{" "}
-                                </h2>
-                              </td>
-                            </tr>
-                          </tfoot>
-                        </table>
                       </tbody>
                     );
                   })}
+                </table>
+                <table className="table cart-table table-responsive-xs">
+                  <tfoot>
+                    <tr>
+                      <td>
+                        <div>小計 :</div>
+                      </td>
+                      <td>
+                        <h2>
+                          {symbol} {total}{" "}
+                        </h2>
+                      </td>
+                    </tr>
+                  </tfoot>
                 </table>
                 <table className="table cart-table table-responsive-md">
                   <tfoot>
@@ -428,85 +413,252 @@ const CartPage = () => {
                 </table>
               </Col>
             </Row>
+            <Row
+              style={{
+                paddingTop: "1rem",
+              }}
+            >
+              <Col
+                style={{
+                  border: "1px solid",
+                  borderColor: "#E0E0E0",
+                  padding: 0,
+                }}
+              >
+                <div
+                  style={{
+                    width: "100%",
+                    backgroundColor: "#E0E0E0",
+                    color: "black",
+                    padding: "0.5rem",
+                  }}
+                >
+                  <h3 style={{ color: "black", fontWeight: "bold" }}>
+                    超值加購
+                  </h3>
+                </div>
+                <div style={{ backgroundColor: "white" }}>
+                  <ul style={{ padding: "1rem" }}>
+                    <li style={{ display: "flex" }}>
+                      <div style={{ width: "100px", marginRight: "1rem" }}>
+                        <Media
+                          style={{ width: "100%" }}
+                          src={hotProductLogo.src}
+                        />
+                      </div>
+                      <div>
+                        <p>鹽酥雞</p>
+                        <p>NT$70</p>
+                        <Button
+                          class="rounded"
+                          style={{ backgroundColor: "black", color: "white" }}
+                        >
+                          加入購物車
+                        </Button>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </Col>
+            </Row>
+
+            <Row
+              style={{
+                width: "fit-content",
+                paddingTop: "1rem",
+              }}
+            >
+              <Col
+                style={{
+                  boxShadow: "1px 1px 5px 0px #000000",
+                  borderColor: "#E0E0E0",
+                  padding: 0,
+                }}
+              >
+                <div
+                  style={{
+                    width: "100%",
+                    backgroundColor: "#E0E0E0",
+                    color: "black",
+                    padding: "0.5rem",
+                  }}
+                >
+                  <h3 style={{ color: "black", fontWeight: "bold" }}>
+                    超值加購
+                  </h3>
+                </div>
+                <div
+                  style={{
+                    backgroundColor: "white",
+                  }}
+                >
+                  <ul style={{ padding: "1rem" }}>
+                    <li
+                      style={{
+                        display: "flex",
+                        border: "0 0 1px 0 solid",
+                        borderBottom: "1px solid #E0E0E0",
+                        paddingBottom: "1rem",
+                        //判斷下面有沒其他物品
+                        marginBottom: "1rem",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          marginRight: "1rem",
+                        }}
+                      >
+                        <input class="rounded" type="checkBox"></input>
+                      </div>
+                      <div style={{ width: "100px", marginRight: "1rem" }}>
+                        <Media
+                          style={{ width: "100%" }}
+                          src={hotProductLogo.src}
+                        />
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "space-between",
+                        }}
+                      >
+                        <div>
+                          <p>鹽酥雞</p>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "row",
+                              alignItems: "center",
+                              justifyContent: "space-around",
+                              marginRight: "1rem",
+                            }}
+                          >
+                            <Button
+                              type="number"
+                              onClick={() => handleCount(-1)}
+                            >
+                              -
+                            </Button>
+                            <div style={{ margin: "0 1rem" }} type="number">
+                              {count}
+                            </div>
+                            <Button
+                              type="number"
+                              onClick={() => handleCount(1)}
+                            >
+                              +
+                            </Button>
+                          </div>
+                          <div style={{ color: "black", fontWeight: "bold" }}>
+                            優惠價 NT$70
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </Col>
+            </Row>
+
             <Row className="cart-buttons">
               <Col style={{ display: "flex", flexDirection: "column" }}>
-                <Link href={`/shop/left_sidebar`}>
+                <Link href={`/shop/three_grid`}>
                   <a
                     style={{
                       width: "fit-content",
-                      backgroundColor: "gray",
+                      backgroundColor: "#A5A09C",
+                      color: "white",
+                      padding: "0.5rem 1.5rem",
                     }}
-                    className="btn btn-solid"
+
+                    // className="btn btn-solid"
                   >
-                    continue shopping
+                    繼續購物
                   </a>
                 </Link>
-                <Input
-                  style={{
-                    width: "fit-content",
-                    marginTop: "1rem",
-                    backgroundColor: "transparent",
-                    border: "0",
-                  }}
-                  placeholder="請輸入優惠卷代碼。"
-                ></Input>
+                <div style={{ width: "fit-content" }}>
+                  <p
+                    style={{
+                      marginTop: "1rem",
+                    }}
+                  >
+                    請輸入優惠卷代碼。
+                  </p>
+                  <div style={{ display: "flex", justifyContent: "center" }}>
+                    <Link href={`/shop/left_sidebar`}>
+                      <Button
+                        style={{
+                          width: "fit-content",
+                          marginTop: "0.2rem",
+                          backgroundColor: "#003366",
+                          fontWeight: 400,
+                        }}
+                        className="rounded"
+                      >
+                        連結錢包
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
                 {/* 已連結錢包 */}
                 <div
                   style={{
                     display: "flex",
                     flexDirection: "column",
                     padding: "0 4rem",
+                    marginTop: "1rem",
                   }}
                 >
                   <p>請選擇優惠卷</p>
-                  {arr2.map((item) => (
-                    <Button
-                      class="rounded-pill"
-                      style={{
-                        width: "fit-content",
-                        backgroundColor: "#F4F3F3",
-                        color: "black",
-                        border: "0",
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        padding: "0.5rem 1rem",
-                        margin: "0.5rem",
-                      }}
-                      onFocus={() => {
-                        // 要變色#FDEEC9
-                      }}
-                    >
-                      <p
+                  <div style={{ width: "fit-content" }}>
+                    {arr2.map((item) => (
+                      <Button
+                        class="rounded-pill"
                         style={{
-                          margin: "0",
+                          backgroundColor: "#F4F3F3",
+                          color: "black",
+                          border: "0",
+                          display: "flex",
+                          width: "100%",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          padding: "0.5rem 1rem",
+                          margin: "0.5rem",
+                        }}
+                        onFocus={() => {
+                          // 要變色#FDEEC9
                         }}
                       >
-                        {item.title}
-                      </p>
-                      <p
-                        style={{
-                          margin: "0 0 0 2rem",
-                        }}
-                      >
-                        {item.des}
-                      </p>
-                    </Button>
-                  ))}
+                        <p
+                          style={{
+                            margin: "0",
+                          }}
+                        >
+                          {item.title}
+                        </p>
+                        <p
+                          style={{
+                            margin: "0 0 0 2rem",
+                          }}
+                        >
+                          {item.des}
+                        </p>
+                      </Button>
+                    ))}
+                  </div>
                 </div>
                 {/* 判斷 */}
-                <Link href={`/shop/left_sidebar`}>
-                  <Button
-                    style={{
-                      width: "fit-content",
-                      marginTop: "1rem",
-                      backgroundColor: "#003366",
-                    }}
-                    className="btn btn-solid rounded"
-                  >
-                    連結錢包
-                  </Button>
-                </Link>
               </Col>
               <Col xs="6">
                 <Link href={`/page/account/checkout`}>

@@ -2,8 +2,8 @@ import React from "react";
 import { Button, Container, Row, Media, Col } from "reactstrap";
 import homeLogo from "../public/assets/images/logos/homeLogo.png";
 import foxLogo from "../public/assets/images/logos/foxLogo.png";
+import hotProductLogo from "../public/assets/images/logos/hotProductLogo.png";
 import HeaderOne from "../components/headers/header-one";
-import ModalComponent from "../components/common/Modal";
 import Helmet from "react-helmet";
 import MasterFooter from "../components/footers/common/MasterFooter";
 
@@ -18,7 +18,6 @@ const Fashion = () => {
           href={"/assets/images/favicon/1.png"}
         />
       </Helmet>
-      <ModalComponent />
       <HeaderOne noTopBar={true} logoName={"logo.png"} topClass="top-header" />
       <Container>
         <div style={{ width: "100%", padding: "0" }}>
@@ -35,7 +34,7 @@ const Fashion = () => {
             <Col
               style={{
                 display: "flex",
-                justifyContent: "center",
+                justifyContent: "end",
                 alignItems: "center",
               }}
             >
@@ -65,15 +64,16 @@ const Fashion = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                width: "279px",
+                height: "284px",
               }}
             >
               <Media
                 style={{
-                  width: "279px",
-                  height: "284px",
-                  backgroundColor: "gray",
+                  width: "12rem",
+                  height: "12rem",
                 }}
-                src={""}
+                src={hotProductLogo.src}
                 alt=""
               />
             </Col>
@@ -84,55 +84,74 @@ const Fashion = () => {
                 justifyContent: "center",
               }}
             >
-              <div
-                style={{
-                  color: "#9A0201",
-                  border: "solid",
-                  width: "fit-content",
-                  padding: "0 0.5rem",
-                }}
-              >
-                7折
-              </div>
-              <div>
-                <Button
+              <div style={{ width: "fit-content" }}>
+                <div
                   style={{
-                    position: "relative",
-                    backgroundColor: "orange",
-                    border: "0",
+                    color: "#9A0201",
+                    border: "solid",
                     width: "fit-content",
-                    padding: "0.5rem 1rem",
-                    marginTop: "1.2rem",
+                    padding: "0 0.5rem",
                   }}
                 >
-                  <img
+                  7折
+                </div>
+                <div>
+                  <div
                     style={{
-                      position: "absolute",
-                      left: "-30%",
-                      top: "-50%",
-                      width: "50%",
+                      width: "fit-content",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "end",
                     }}
-                    src={foxLogo.src}
-                  />
-                  使用貝殼支付
-                </Button>
-                <div style={{ position: "relative" }}>(加密貨幣付款)</div>
-              </div>
-              <div>
-                特惠價$<span>3280元</span>
-              </div>
-              <div>
-                <Button
-                  style={{
-                    backgroundColor: "#9A0201",
-                    border: "0",
-                    width: "fit-content",
-                    marginTop: "1.2rem",
-                    float: "right",
-                  }}
-                >
-                  立即購買
-                </Button>
+                  >
+                    <Button
+                      style={{
+                        position: "relative",
+                        backgroundColor: "orange",
+                        border: "0",
+                        width: "fit-content",
+                        padding: "0.5rem 1rem",
+                        marginTop: "1.2rem",
+                      }}
+                    >
+                      <img
+                        style={{
+                          position: "absolute",
+                          left: "-30%",
+                          top: "-50%",
+                          width: "50%",
+                        }}
+                        src={foxLogo.src}
+                      />
+                      使用貝殼支付
+                    </Button>
+                    <div style={{ textAlign: "end" }}>(加密貨幣付款)</div>
+                  </div>
+                </div>
+                <div style={{ marginTop: "1.2rem" }}>
+                  <span
+                    style={{ color: "#A3A3A3", textDecoration: "line-through" }}
+                  >
+                    4580
+                  </span>
+                  <h5 style={{ display: "inline-block", fontWeight: "bold" }}>
+                    &emsp;特惠價$
+                  </h5>
+                  <h2 style={{ display: "inline-block" }}>3280元</h2>
+                </div>
+                <div>
+                  <Button
+                    style={{
+                      backgroundColor: "#9A0201",
+                      border: "0",
+                      width: "fit-content",
+                      marginTop: "1.2rem",
+                      float: "right",
+                    }}
+                  >
+                    立即購買
+                  </Button>
+                </div>
               </div>
             </Col>
           </Row>
