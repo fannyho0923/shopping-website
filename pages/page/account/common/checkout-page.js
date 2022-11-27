@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Media, Container, Form, Row, Col } from "reactstrap";
+import { Media, Container, Form, Row, Col, Button } from "reactstrap";
 import CartContext from "../../../../helpers/cart";
 import paypal from "../../../../public/assets/images/paypal.png";
 import { PayPalButton } from "react-paypal-button-v2";
@@ -9,7 +9,7 @@ import { CurrencyContext } from "../../../../helpers/Currency/CurrencyContext";
 
 const CheckoutPage = () => {
   const cartContext = useContext(CartContext);
-  const cartItems = cartContext.state;
+  // const cartItems = cartContext.state;
   const cartTotal = cartContext.cartTotal;
   const curContext = useContext(CurrencyContext);
   const symbol = curContext.state.symbol;
@@ -43,6 +43,105 @@ const CheckoutPage = () => {
     setObj(obj);
   };
 
+  const cartItems = [
+    {
+      id: 1,
+      title: "trim dress",
+      description:
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
+      type: "fashion",
+      brand: "nike",
+      collection: ["new products"],
+      category: "Women",
+      price: 145,
+      sale: true,
+      discount: "40",
+      stock: 5,
+      new: true,
+      tags: ["new", "s", "m", "yellow", "white", "pink", "nike"],
+      variants: [
+        {
+          variant_id: 101,
+          id: 1.1,
+          sku: "sku1",
+          size: "s",
+          color: "yellow",
+          image_id: 111,
+        },
+        {
+          variant_id: 102,
+          id: 1.2,
+          sku: "sku2",
+          size: "s",
+          color: "white",
+          image_id: 112,
+        },
+        {
+          variant_id: 103,
+          id: 1.3,
+          sku: "sku3",
+          size: "s",
+          color: "pink",
+          image_id: 113,
+        },
+        {
+          variant_id: 104,
+          id: 1.4,
+          sku: "sku4",
+          size: "m",
+          color: "yellow",
+          image_id: 111,
+        },
+        {
+          variant_id: 105,
+          id: 1.5,
+          sku: "sku5",
+          size: "m",
+          color: "white",
+          image_id: 112,
+        },
+        {
+          variant_id: 106,
+          id: 1.6,
+          sku: "sku5",
+          size: "m",
+          color: "pink",
+          image_id: 113,
+        },
+        {
+          variant_id: 107,
+          id: 1.7,
+          sku: "sku1",
+          size: "l",
+          color: "yellow",
+          image_id: 111,
+        },
+      ],
+      images: [
+        {
+          image_id: 111,
+          id: 1.1,
+          alt: "yellow",
+          src: "/assets/images/pro3/39.jpg",
+          variant_id: [101, 104],
+        },
+        {
+          image_id: 112,
+          id: 1.2,
+          alt: "white",
+          src: "/assets/images/pro3/6.jpg",
+          variant_id: [102, 105],
+        },
+        {
+          image_id: 113,
+          id: 1.3,
+          alt: "pink",
+          src: "/assets/images/pro3/25.jpg",
+          variant_id: [103, 106],
+        },
+      ],
+    },
+  ];
   return (
     <section className="section-b-space">
       <Container>
@@ -51,141 +150,346 @@ const CheckoutPage = () => {
             <Form onSubmit={handleSubmit(onSubmit)}>
               <Row>
                 <Col lg="6" sm="12" xs="12">
-                  <div className="checkout-title">
-                    <h3>Billing Details</h3>
-                  </div>
+                  <div>123</div>
                   <div className="row check-out">
-                    <div className="form-group col-md-6 col-sm-6 col-xs-12">
+                    <div style={{ display: "flex" }} className="form-group">
+                      <div className="field-label">取貨方式</div>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexGrow: 1,
+                          justifyContent: "space-evenly",
+                        }}
+                      >
+                        <Button
+                          className="rounded"
+                          style={{
+                            backgroundColor: "#D9D9D9",
+                            width: "fit-content",
+                            padding: "0.2rem 1rem",
+                            marginRight: "1rem",
+                            color: "black",
+                            border: "0",
+                            fontWeight: "400",
+                          }}
+                        >
+                          統一超商
+                        </Button>
+                        <Button
+                          className="rounded"
+                          style={{
+                            backgroundColor: "#D9D9D9",
+                            width: "fit-content",
+                            padding: "0.2rem 1rem",
+                            marginRight: "1rem",
+                            color: "black",
+                            border: "0",
+                            fontWeight: "400",
+                          }}
+                        >
+                          全家超商
+                        </Button>
+                        <Button
+                          className="rounded"
+                          style={{
+                            backgroundColor: "#D9D9D9",
+                            width: "fit-content",
+                            padding: "0.2rem 1rem",
+                            marginRight: "1rem",
+                            color: "black",
+                            border: "0",
+                            fontWeight: "400",
+                          }}
+                        >
+                          到店取貨
+                        </Button>
+                        <Button
+                          className="rounded"
+                          style={{
+                            backgroundColor: "#D9D9D9",
+                            width: "fit-content",
+                            padding: "0.2rem 1rem",
+                            marginRight: "1rem",
+                            color: "black",
+                            border: "0",
+                            fontWeight: "400",
+                          }}
+                        >
+                          宅配
+                        </Button>
+                      </div>
+                    </div>
+
+                    <div
+                      style={{ display: "flex" }}
+                      className="form-group col-md-12 col-sm-12 col-xs-12"
+                    >
+                      <div className="field-label">Address</div>
+                      <div style={{ flexGrow: 1 }}>
+                        <input
+                          style={{
+                            flexGrow: 1,
+                            border: "0",
+                            borderBottom: "1px solid",
+                          }}
+                          className={`${errors.address ? "error_border" : ""}`}
+                          type="text"
+                          name="address"
+                          {...register("address", {
+                            required: true,
+                            min: 20,
+                            max: 120,
+                          })}
+                          placeholder="Street address"
+                        />
+                        <span className="error-message">
+                          {errors.address && "Please right your address ."}
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      style={{ display: "flex" }}
+                      className="form-group col-md-12 col-sm-12 col-xs-12"
+                    >
                       <div className="field-label">First Name</div>
-                      <input
-                        type="text"
-                        className={`${errors.firstName ? "error_border" : ""}`}
-                        name="first_name"
-                        {...register("first_name", { required: true })}
-                      />
+                      <div
+                        style={{
+                          flexGrow: 1,
+                        }}
+                      >
+                        <input
+                          style={{
+                            flexGrow: 1,
+                            border: "0",
+                            borderBottom: "1px solid",
+                          }}
+                          type="text"
+                          className={`${
+                            errors.firstName ? "error_border" : ""
+                          }`}
+                          name="first_name"
+                          {...register("first_name", { required: true })}
+                        />
+                      </div>
                       <span className="error-message">
                         {errors.firstName && "First name is required"}
                       </span>
                     </div>
-                    <div className="form-group col-md-6 col-sm-6 col-xs-12">
-                      <div className="field-label">Last Name</div>
-                      <input
-                        type="text"
-                        className={`${errors.last_name ? "error_border" : ""}`}
-                        name="last_name"
-                        {...register("last_name", { required: true })}
-                      />
-                      <span className="error-message">
-                        {errors.last_name && "Last name is required"}
-                      </span>
-                    </div>
-                    <div className="form-group col-md-6 col-sm-6 col-xs-12">
+
+                    <div
+                      style={{ display: "flex" }}
+                      className="form-group col-md-12 col-sm-12 col-xs-12"
+                    >
                       <div className="field-label">Phone</div>
-                      <input
-                        type="text"
-                        name="phone"
-                        className={`${errors.phone ? "error_border" : ""}`}
-                        {...register("phone", { pattern: /\d+/ })}
-                      />
-                      <span className="error-message">
-                        {errors.phone && "Please enter number for phone."}
-                      </span>
+                      <div style={{ flexGrow: 1 }}>
+                        <input
+                          style={{
+                            flexGrow: 1,
+                            border: "0",
+                            borderBottom: "1px solid",
+                          }}
+                          type="text"
+                          name="phone"
+                          className={`${errors.phone ? "error_border" : ""}`}
+                          {...register("phone", { pattern: /\d+/ })}
+                        />
+                        <span className="error-message">
+                          {errors.phone && "Please enter number for phone."}
+                        </span>
+                      </div>
                     </div>
-                    <div className="form-group col-md-6 col-sm-6 col-xs-12">
+
+                    <div
+                      style={{ display: "flex" }}
+                      className="form-group col-md-12 col-sm-12 col-xs-12"
+                    >
                       <div className="field-label">Email Address</div>
-                      <input
-                        //className="form-control"
-                        className={`${errors.email ? "error_border" : ""}`}
-                        type="text"
-                        name="email"
-                        {...register("email", {
-                          required: true,
-                          pattern: /^\S+@\S+$/i,
-                        })}
-                      />
-                      <span className="error-message">
-                        {errors.email && "Please enter proper email address ."}
-                      </span>
+                      <div style={{ flexGrow: 1 }}>
+                        <input
+                          style={{
+                            flexGrow: 1,
+                            border: "0",
+                            borderBottom: "1px solid",
+                          }}
+                          className={`${errors.email ? "error_border" : ""}`}
+                          type="text"
+                          name="email"
+                          {...register("email", {
+                            required: true,
+                            pattern: /^\S+@\S+$/i,
+                          })}
+                        />
+                        <span className="error-message">
+                          {errors.email &&
+                            "Please enter proper email address ."}
+                        </span>
+                      </div>
                     </div>
-                    <div className="form-group col-md-12 col-sm-12 col-xs-12">
-                      <div className="field-label">Country</div>
-                      <select
-                        name="country"
-                        {...register("country", { required: true })}
+
+                    <div
+                      style={{ display: "flex" }}
+                      className="form-group col-md-12 col-sm-6 col-xs-12"
+                    >
+                      <div className="field-label">付款方式</div>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                          flexGrow: 1,
+                        }}
+                        className="payment-box"
                       >
-                        <option>India</option>
-                        <option>South Africa</option>
-                        <option>United State</option>
-                        <option>Australia</option>
-                      </select>
-                    </div>
-                    <div className="form-group col-md-12 col-sm-12 col-xs-12">
-                      <div className="field-label">Address</div>
-                      <input
-                        //className="form-control"
-                        className={`${errors.address ? "error_border" : ""}`}
-                        type="text"
-                        name="address"
-                        {...register("address", {
-                          required: true,
-                          min: 20,
-                          max: 120,
-                        })}
-                        placeholder="Street address"
-                      />
-                      <span className="error-message">
-                        {errors.address && "Please right your address ."}
-                      </span>
-                    </div>
-                    <div className="form-group col-md-12 col-sm-12 col-xs-12">
-                      <div className="field-label">Town/City</div>
-                      <input
-                        //className="form-control"
-                        type="text"
-                        className={`${errors.city ? "error_border" : ""}`}
-                        name="city"
-                        {...register("city", { required: true })}
-                        onChange={setStateFromInput}
-                      />
-                      <span className="error-message">
-                        {errors.city && "select one city"}
-                      </span>
-                    </div>
-                    <div className="form-group col-md-12 col-sm-6 col-xs-12">
-                      <div className="field-label">State / County</div>
-                      <input
-                        //className="form-control"
-                        type="text"
-                        className={`${errors.state ? "error_border" : ""}`}
-                        name="state"
-                        {...register("state", { required: true })}
-                        onChange={setStateFromInput}
-                      />
-                      <span className="error-message">
-                        {errors.state && "select one state"}
-                      </span>
-                    </div>
-                    <div className="form-group col-md-12 col-sm-6 col-xs-12">
-                      <div className="field-label">Postal Code</div>
-                      <input
-                        //className="form-control"
-                        type="text"
-                        name="pincode"
-                        className={`${errors.pincode ? "error_border" : ""}`}
-                        {...register("pincode", { pattern: /\d+/ })}
-                      />
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            flexGrow: 1,
+                          }}
+                          className="upper-box"
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              flexGrow: 1,
+                            }}
+                            className="payment-options"
+                          >
+                            <ul
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                justifyContent: "space-around",
+                                flexGrow: 1,
+                              }}
+                            >
+                              <li
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div>
+                                  <input
+                                    type="radio"
+                                    name="payment-group"
+                                    id="payment-1"
+                                    defaultChecked={true}
+                                    onClick={() => checkhandle("stripe")}
+                                  />
+                                </div>
+                                <label
+                                  style={{ textAlign: "center" }}
+                                  htmlFor="payment-1"
+                                >
+                                  貝殼交換
+                                  <br />
+                                  (Crypto pay)
+                                </label>
+                              </li>
+                              <li
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div>
+                                  <input
+                                    type="radio"
+                                    name="payment-group"
+                                    id="payment-1"
+                                    onClick={() => checkhandle("credit")}
+                                  />
+                                </div>
+                                <label htmlFor="payment-1">信用卡</label>
+                              </li>
+                              <li
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div>
+                                  <input
+                                    type="radio"
+                                    name="payment-group"
+                                    id="payment-1"
+                                    onClick={() => checkhandle("paypal")}
+                                  />
+                                </div>
+                                <label htmlFor="payment-1">LINE pay</label>
+                              </li>
+                              <li
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div>
+                                  <input
+                                    type="radio"
+                                    name="payment-group"
+                                    id="payment-1"
+                                    onClick={() => checkhandle("line")}
+                                  />
+                                </div>
+                                <label htmlFor="payment-1">取貨付款</label>
+                              </li>
+                            </ul>
+                          </div>
+                          <div>
+                            <Button
+                              className="rounded"
+                              style={{
+                                backgroundColor: "#D9D9D9",
+                                width: "fit-content",
+                                padding: "0.2rem 0.5rem",
+                                marginRight: "1rem",
+                                color: "black",
+                                border: "0",
+                                fontWeight: "400",
+                              }}
+                            >
+                              付款
+                            </Button>
+                          </div>
+                        </div>
+
+                        {cartTotal !== 0 ? (
+                          <div className="text-end">
+                            {payment === "stripe" ? (
+                              <button type="submit" className="btn-solid btn">
+                                Place Order
+                              </button>
+                            ) : (
+                              <PayPalButton
+                                amount="0.01"
+                                onSuccess={(details, data) => {
+                                  alert(
+                                    "Transaction completed by " +
+                                      details.payer.name.given_name
+                                  );
+
+                                  return fetch("/paypal-transaction-complete", {
+                                    method: "post",
+                                    body: JSON.stringify({
+                                      orderID: data.orderID,
+                                    }),
+                                  });
+                                }}
+                              />
+                            )}
+                          </div>
+                        ) : (
+                          ""
+                        )}
+                      </div>
                       <span className="error-message">
                         {errors.pincode && "Required integer"}
                       </span>
-                    </div>
-                    <div className="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                      <input
-                        type="checkbox"
-                        name="create_account"
-                        id="account-option"
-                      />
-                      &ensp;{" "}
-                      <label htmlFor="account-option">Create An Account?</label>
                     </div>
                   </div>
                 </Col>
@@ -193,52 +497,103 @@ const CheckoutPage = () => {
                   {cartItems && cartItems.length > 0 > 0 ? (
                     <div className="checkout-details">
                       <div className="order-box">
-                        <div className="title-box">
-                          <div>
-                            Product <span>Total</span>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexGrow: 1,
+                          }}
+                          className="title-box"
+                        >
+                          <div
+                            style={{
+                              width: "50%",
+                            }}
+                          >
+                            Product
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "100%",
+                            }}
+                          >
+                            <div
+                              style={{
+                                width: "50%",
+                              }}
+                            >
+                              數量
+                            </div>
+                            <div>小計</div>
                           </div>
                         </div>
                         <ul className="qty">
                           {cartItems.map((item, index) => (
-                            <li key={index}>
-                              {item.title} × {item.qty}{" "}
-                              <span>
-                                {symbol}
-                                {item.total}
-                              </span>
+                            <li
+                              style={{ display: "flex", flexGrow: 1 }}
+                              key={index}
+                            >
+                              <div
+                                style={{
+                                  width: "50%",
+                                }}
+                              >
+                                {item.title}
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  width: "100%",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    width: "50%",
+                                  }}
+                                >
+                                  {item.qty}1
+                                </div>
+                                <div>
+                                  {symbol}
+                                  {item.total}
+                                </div>
+                              </div>
                             </li>
                           ))}
                         </ul>
                         <ul className="sub-total">
-                          <li>
-                            Subtotal{" "}
-                            <span className="count">
-                              {symbol}
-                              {cartTotal}
-                            </span>
+                          <li style={{ display: "flex", flexGrow: 1 }}>
+                            <div
+                              style={{
+                                width: "50%",
+                              }}
+                            >
+                              貝殼交換贈品
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "100%",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: "50%",
+                                }}
+                              >
+                                師園提袋
+                              </div>
+                              <div>
+                                {symbol}
+                                {cartTotal}
+                              </div>
+                            </div>
                           </li>
                           <li>
-                            Shipping
+                            運費
                             <div className="shipping">
                               <div className="shopping-option">
-                                <input
-                                  type="checkbox"
-                                  name="free-shipping"
-                                  id="free-shipping"
-                                />
-                                <label htmlFor="free-shipping">
-                                  Free Shipping
-                                </label>
-                              </div>
-                              <div className="shopping-option">
-                                <input
-                                  type="checkbox"
-                                  name="local-pickup"
-                                  id="local-pickup"
-                                />
-                                <label htmlFor="local-pickup">
-                                  Local Pickup
-                                </label>
+                                <label htmlFor="local-pickup">$60</label>
                               </div>
                             </div>
                           </li>
@@ -254,40 +609,7 @@ const CheckoutPage = () => {
                         </ul>
                       </div>
                       <div className="payment-box">
-                        <div className="upper-box">
-                          <div className="payment-options">
-                            <ul>
-                              <li>
-                                <div className="radio-option stripe">
-                                  <input
-                                    type="radio"
-                                    name="payment-group"
-                                    id="payment-2"
-                                    defaultChecked={true}
-                                    onClick={() => checkhandle("stripe")}
-                                  />
-                                  <label htmlFor="payment-2">Stripe</label>
-                                </div>
-                              </li>
-                              <li>
-                                <div className="radio-option paypal">
-                                  <input
-                                    type="radio"
-                                    name="payment-group"
-                                    id="payment-1"
-                                    onClick={() => checkhandle("paypal")}
-                                  />
-                                  <label htmlFor="payment-1">
-                                    PayPal
-                                    <span className="image">
-                                      <Media src={paypal.src} alt="" />
-                                    </span>
-                                  </label>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
+                        <div className="upper-box"></div>
                         {cartTotal !== 0 ? (
                           <div className="text-end">
                             {payment === "stripe" ? (

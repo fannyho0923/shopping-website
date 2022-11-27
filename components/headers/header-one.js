@@ -105,7 +105,11 @@ const HeaderOne = ({
                   <div>
                     <div className="icon-nav">
                       <ul>
-                        <li className="onhover-div mobile-search">
+                        <li
+                          style={{ display: "flex" }}
+                          className="onhover-div mobile-search"
+                        >
+                          <SearchOverlay />
                           <div>
                             <Media
                               src={search.src}
@@ -136,8 +140,6 @@ const HeaderOne = ({
           </Row>
         </Container>
       </header>
-
-      <SearchOverlay />
     </div>
   );
 };

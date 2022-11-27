@@ -11,7 +11,7 @@ export const MENUITEMS = [
   {
     title: "Products",
     type: "link",
-    path: "/product-details/thumbnail_outside",
+    path: "/shop/three_grid",
     //will del
     children: [
       {
@@ -108,6 +108,11 @@ export const MENUITEMS = [
     ],
   },
   {
+    title: "product detail",
+    type: "link",
+    path: "/product-details/thumbnail_outside",
+  },
+  {
     title: "About Us",
     type: "link",
     path: "/page/about-us",
@@ -124,10 +129,10 @@ export const MENUITEMS = [
     path: "/page/account/cart",
     // children: [{ path: "/page/account/cart", title: "cart", type: "link" }],
   },
-  {
-    title: "checkout",
-    type: "link",
-    path: "/page/account/checkout",
-    // children: [{ path: "/page/account/cart", title: "cart", type: "link" }],
-  },
+  // {
+  //   title: "checkout",
+  //   type: "link",
+  //   path: "/page/account/checkout",
+  //   // children: [{ path: "/page/account/cart", title: "cart", type: "link" }],
+  // },
 ];

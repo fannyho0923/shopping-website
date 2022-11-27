@@ -156,34 +156,6 @@ const ProductList = ({ colClass, layoutList, openSidebar, noSidebar }) => {
       <div className="page-main-content">
         <Row>
           <Col sm="12">
-            <div className="top-banner-wrapper">
-              <a href={null}>
-                <Media
-                  src={Menu2.src}
-                  className="img-fluid blur-up lazyload"
-                  alt=""
-                />
-              </a>
-              <div className="top-banner-content small-section">
-                <h4>fashion</h4>
-                <h5>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </h5>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-              </div>
-            </div>
             <Row>
               <Col xs="12">
                 <ul className="product-filter-tags">
@@ -351,14 +323,14 @@ const ProductList = ({ colClass, layoutList, openSidebar, noSidebar }) => {
                 <Row>
                   {/* Product Box */}
                   {!data ||
-                    !data.products ||
-                    !data.products.items ||
-                    data.products.items.length === 0 ||
-                    loading ? (
+                  !data.products ||
+                  !data.products.items ||
+                  data.products.items.length === 0 ||
+                  loading ? (
                     data &&
-                      data.products &&
-                      data.products.items &&
-                      data.products.items.length === 0 ? (
+                    data.products &&
+                    data.products.items &&
+                    data.products.items.length === 0 ? (
                       <Col xs="12">
                         <div>
                           <div className="col-sm-12 empty-cart-cls text-center">
@@ -423,7 +395,10 @@ const ProductList = ({ colClass, layoutList, openSidebar, noSidebar }) => {
                   <Row>
                     <Col xl="12" md="12" sm="12">
                       {data && data.products && data.products.hasMore && (
-                        <Button className="load-more" onClick={() => handlePagination()}>
+                        <Button
+                          className="load-more"
+                          onClick={() => handlePagination()}
+                        >
                           {isLoading && (
                             <Spinner animation="border" variant="light" />
                           )}
