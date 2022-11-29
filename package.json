@@ -6,12 +6,12 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next",
     "start": "next start",
-    "build": "next build"
+    "build": "next build",
+    "export": "next export",
+    "deploy": "rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && git add out/ && git commit -m \"Deploy Next.js to gh-pages\" && git subtree push --prefix out origin gh-pages"
   },
   "keywords": [],
   "author": "",
