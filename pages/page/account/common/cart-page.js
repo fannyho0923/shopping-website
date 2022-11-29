@@ -13,7 +13,7 @@ const CartPage = () => {
   const symbol = curContext.state.symbol;
   const total = context.cartTotal;
   const removeFromCart = context.removeFromCart;
-  const [quantity, setQty] = useState(1);
+  const [quantity, setQuantity] = useState(1);
   const [quantityError, setQuantityError] = useState(false);
   const [count, setCount] = useState(0);
   const updateQty = context.updateQty;
