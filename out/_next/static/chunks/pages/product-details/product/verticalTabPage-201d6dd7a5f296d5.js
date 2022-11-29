@@ -1,0 +1,1 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[5998],{10343:function(n,u,_){(window.__NEXT_P=window.__NEXT_P||[]).push(["/product-details/product/verticalTabPage",function(){return _(26312)}])}},function(n){n.O(0,[1559,3443,6066,6160,3893,5004,6312,9774,2888,179],(function(){return u=10343,n(n.s=u);var u}));var u=n.O();_N_E=u}]);
