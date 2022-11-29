@@ -109,7 +109,7 @@ const HeaderOne = ({
 
                   <div>
                     <div className="icon-nav">
-                      <ul>
+                      <ul style={{ display: "flex" }}>
                         <li
                           style={{ display: "flex" }}
                           className="onhover-div mobile-search"
@@ -143,29 +143,42 @@ const HeaderOne = ({
                             alignItems: "center",
                           }}
                         >
-                          <Button
-                            class="rounded"
+                          <li
                             style={{
-                              position: "relative",
-                              background: "Button",
-                              backgroundColor: "#d9d9d9",
-                              color: "black",
-                              border: "0",
-                              paddingLeft: "1.5rem",
+                              marginLeft: "2rem",
                             }}
-                            onClick={() => setIsConnected(!isConnected)}
                           >
-                            <img
+                            <Button
+                              class="rounded"
                               style={{
-                                position: "absolute",
-                                left: "-30%",
-                                top: isConnected ? "-40%" : "-35%",
-                                width: "50%",
+                                position: "relative",
+                                background: "Button",
+                                backgroundColor: "#d9d9d9",
+                                color: "black",
+                                border: "0",
+                                paddingLeft: "1.5rem",
                               }}
+<<<<<<< HEAD
                               src={foxLogo.src}
                             />
                             {wallet ? wallet : "連結錢包"}
                           </Button>
+=======
+                              onClick={() => setIsConnected(!isConnected)}
+                            >
+                              <img
+                                style={{
+                                  position: "absolute",
+                                  left: "-30%",
+                                  top: isConnected ? "-40%" : "-35%",
+                                  width: "50%",
+                                }}
+                                src={foxLogo.src}
+                              />
+                              {wallet ? wallet : "連結錢包"}
+                            </Button>
+                          </li>
+>>>>>>> 4504d6d (update at 1129)
                         </div>
                       </ul>
                     </div>

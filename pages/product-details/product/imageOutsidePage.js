@@ -1,5 +1,6 @@
 import React, { useContext, useState, useRef, useEffect } from "react";
 import {
+  Button,
   Container,
   Row,
   Col,
@@ -11,6 +12,7 @@ import {
 } from "reactstrap";
 import Link from "next/link";
 import Slider from "react-slick";
+import hotProductLogo from "../../../public/assets/images/logos/hotProductLogo.png";
 import sizeChart from "../../../public/assets/images/size-chart.jpg";
 import { gql } from "@apollo/client";
 import { useQuery } from "@apollo/client";
@@ -57,6 +59,7 @@ const OutsideImagePage = () => {
   const slider1 = useRef();
   const slider2 = useRef();
   const [modal, setModal] = useState(false);
+  const [count, setCount] = useState(0);
   const toggle = () => setModal(!modal);
   const [open, setOpen] = useState(false);
   const stock = context.stock;
@@ -72,6 +75,13 @@ const OutsideImagePage = () => {
 
   const changeQty = (e) => {
     setQuantity(parseInt(e.target.value));
+  };
+
+  const handleCount = (i) => {
+    if (count <= 0 && i < 1) {
+      return setCount(0);
+    }
+    setCount(count + i);
   };
 
   // var { loading, data } = useQuery(GET_SINGLE_PRODUCTS, {
@@ -318,16 +328,6 @@ const OutsideImagePage = () => {
                               <i className="fa fa-google-plus"></i>
                             </a>
                           </li>
-                          <li>
-                            <a href="https://twitter.com" target="_blank">
-                              <i className="fa fa-twitter"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="https://www.instagram.com" target="_blank">
-                              <i className="fa fa-instagram"></i>
-                            </a>
-                          </li>
                         </ul>
                       </div>
                     </div>
@@ -335,6 +335,127 @@ const OutsideImagePage = () => {
                       <h6 className="product-title">Time Reminder</h6>
                       <CountdownComponent />
                     </div>
+                    <Row
+                      style={{
+                        width: "fit-content",
+                        paddingTop: "1rem",
+                      }}
+                    >
+                      <Col
+                        style={{
+                          boxShadow: "1px 1px 5px 0px #000000",
+                          borderColor: "#E0E0E0",
+                          padding: 0,
+                        }}
+                      >
+                        <div
+                          style={{
+                            width: "100%",
+                            backgroundColor: "#E0E0E0",
+                            color: "black",
+                            padding: "0.5rem",
+                          }}
+                        >
+                          <h3 style={{ color: "black", fontWeight: "bold" }}>
+                            超值加購
+                          </h3>
+                        </div>
+                        <div
+                          style={{
+                            backgroundColor: "white",
+                          }}
+                        >
+                          <ul style={{ padding: "1rem" }}>
+                            <li
+                              style={{
+                                display: "flex",
+                                border: "0 0 1px 0 solid",
+                                borderBottom: "1px solid #E0E0E0",
+                                paddingBottom: "1rem",
+                                //判斷下面有沒其他物品
+                                marginBottom: "1rem",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  marginRight: "1rem",
+                                }}
+                              >
+                                <input
+                                  className="rounded"
+                                  type="checkBox"
+                                ></input>
+                              </div>
+                              <div
+                                style={{ width: "100px", marginRight: "1rem" }}
+                              >
+                                <Media
+                                  style={{ width: "100%" }}
+                                  src={hotProductLogo.src}
+                                />
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  justifyContent: "space-between",
+                                }}
+                              >
+                                <div>
+                                  <p>鹽酥雞</p>
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "row",
+                                      alignItems: "center",
+                                      justifyContent: "space-around",
+                                      marginRight: "1rem",
+                                    }}
+                                  >
+                                    <Button
+                                      type="number"
+                                      onClick={() => handleCount(-1)}
+                                    >
+                                      -
+                                    </Button>
+                                    <div
+                                      style={{ margin: "0 1rem" }}
+                                      type="number"
+                                    >
+                                      {count}
+                                    </div>
+                                    <Button
+                                      type="number"
+                                      onClick={() => handleCount(1)}
+                                    >
+                                      +
+                                    </Button>
+                                  </div>
+                                  <div
+                                    style={{
+                                      color: "black",
+                                      fontWeight: "bold",
+                                    }}
+                                  >
+                                    優惠價 NT$70
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </Col>
+                    </Row>
                   </div>
                   <Modal open={open} onClose={onCloseModal} center>
                     <div

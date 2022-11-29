@@ -22,15 +22,15 @@ const ProductTab = () => {
               <Nav tabs className="nav-material">
                 <NavItem className="nav nav-tabs" id="myTab" role="tablist">
                   <NavLink
-                    className={activeTab === "2" ? "active" : ""}
-                    onClick={() => setActiveTab("2")}
+                    className={activeTab === "1" ? "active" : ""}
+                    onClick={() => setActiveTab("1")}
                   >
                     商品資訊
                   </NavLink>
                 </NavItem>
               </Nav>
               <TabContent activeTab={activeTab} className="nav-material">
-                <TabPane tabId="2">
+                <TabPane tabId="1">
                   <p className="mb-0 pb-0">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna

@@ -109,7 +109,7 @@ export const MENUITEMS = [
   },
   {
     title: "product detail",
-    type: "link",
+    type: "sub",
     path: "/product-details/thumbnail_outside",
   },
   {
@@ -125,7 +125,7 @@ export const MENUITEMS = [
   },
   {
     title: "cart",
-    type: "link",
+    type: "sub",
     path: "/page/account/cart",
     // children: [{ path: "/page/account/cart", title: "cart", type: "link" }],
   },

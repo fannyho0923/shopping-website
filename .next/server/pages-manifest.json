@@ -2,6 +2,11 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+<<<<<<< HEAD
   "/page/account/cart": "pages/page/account/cart.js",
   "/product-details/thumbnail_outside": "pages/product-details/thumbnail_outside.js"
+=======
+  "/shop/three_grid": "pages/shop/three_grid.js",
+  "/page/account/cart": "pages/page/account/cart.js"
+>>>>>>> 4504d6d (update at 1129)
 }

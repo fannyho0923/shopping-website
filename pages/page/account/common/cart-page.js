@@ -41,6 +41,7 @@ const CartPage = () => {
     }
     setCount(count + i);
   };
+
   const handleQtyUpdate = (item, quantity) => {
     if (quantity >= 1) {
       setQuantityError(false);
@@ -480,6 +481,7 @@ const CartPage = () => {
               </Col>
             </Row>
 
+<<<<<<< HEAD
             <Row
               style={{
                 width: "fit-content",
@@ -589,6 +591,8 @@ const CartPage = () => {
               </Col>
             </Row>
 
+=======
+>>>>>>> 4504d6d (update at 1129)
             <Row className="cart-buttons">
               <Col style={{ display: "flex", flexDirection: "column" }}>
                 <Link href={`/shop/three_grid`}>

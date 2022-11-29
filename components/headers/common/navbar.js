@@ -158,6 +158,9 @@ const NavBar = () => {
                   </li>
                 );
               }
+              if (menuItem.type === "sub") {
+                return;
+              }
               return (
                 <li
                   key={i}
