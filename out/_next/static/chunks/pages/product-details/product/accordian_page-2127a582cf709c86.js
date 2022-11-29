@@ -1,0 +1,1 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[8529],{34779:function(n,_,u){(window.__NEXT_P=window.__NEXT_P||[]).push(["/product-details/product/accordian_page",function(){return u(59663)}])}},function(n){n.O(0,[1559,3443,6066,6127,886,9663,9774,2888,179],(function(){return _=34779,n(n.s=_);var _}));var _=n.O();_N_E=_}]);
