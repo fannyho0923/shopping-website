@@ -32,6 +32,10 @@ const nextConfig = {
   basePath: "/shopping-website",
   assetPrefix: "/shopping-website",
   reactStrictMode: true,
+  images: {
+    loader: "akamai",
+    path: "",
+  },
   webpack(config, options) {
     config.module.rules.push({
       test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
