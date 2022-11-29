@@ -1,0 +1,1 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[9349],{39943:function(n,_,o){(window.__NEXT_P=window.__NEXT_P||[]).push(["/portfolio/common/grid-2-page",function(){return o(29931)}])}},function(n){n.O(0,[1559,8369,2264,7888,9931,9774,2888,179],(function(){return _=39943,n(n.s=_);var _}));var _=n.O();_N_E=_}]);

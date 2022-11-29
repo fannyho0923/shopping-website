@@ -1,0 +1,1 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[7274],{40459:function(n,u,_){(window.__NEXT_P=window.__NEXT_P||[]).push(["/product-details/product/rightSidebarPage",function(){return _(39789)}])}},function(n){n.O(0,[1559,3443,6066,6160,3893,6735,9011,9789,9774,2888,179],(function(){return u=40459,n(n.s=u);var u}));var u=n.O();_N_E=u}]);
