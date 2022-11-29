@@ -20,7 +20,11 @@ const Pets = () => {
     <>
       <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/x-icon" href={"/assets/images/favicon/15.png"} />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href={"/assets/images/favicon/15.png"}
+        />
       </Helmet>
       <ModalComponent />
       <HeaderThree logoName={"logo/14.png"} />
@@ -41,7 +45,7 @@ const Pets = () => {
         noSlider={true}
         cartClass="cart-info cart-wrap"
       />
-      <ParallaxBanner />   
+      <ParallaxBanner />
       <TopCollection
         inner="title-inner1"
         innerClass="title1 title5"
@@ -52,7 +56,7 @@ const Pets = () => {
         productSlider={Product4}
         noSlider={true}
         cartClass="cart-info cart-wrap"
-      />   
+      />
       <Blog
         type="pets"
         sectionClass="section-b-space"
@@ -61,7 +65,7 @@ const Pets = () => {
         hrClass={true}
       />
       <ThemeSettings />
-      <FooterTwo logoName={"logo/14.png"} layoutClass="black-subfooter" /> 
+      <FooterTwo logoName={"logo/14.png"} layoutClass="black-subfooter" />
     </>
   );
 };

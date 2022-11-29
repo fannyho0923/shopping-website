@@ -9,7 +9,9 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "next"
+    "dev": "next",
+    "start": "react-scripts start",
+    "build": "react-scripts build"
   },
   "keywords": [],
   "author": "",
@@ -56,6 +58,7 @@
     "react-paypal-button-v2": "^2.6.3",
     "react-range": "^1.8.13",
     "react-responsive-carousel": "^3.2.23",
+    "react-scripts": "^5.0.1",
     "react-slick": "^0.29.0",
     "react-sticky-el": "^2.0.9",
     "react-tabs": "4.2.1",

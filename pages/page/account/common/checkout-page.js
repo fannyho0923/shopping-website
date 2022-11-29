@@ -152,7 +152,9 @@ const CheckoutPage = () => {
                 <Col lg="6" sm="12" xs="12">
                   <div className="row check-out">
                     <div style={{ display: "flex" }} className="form-group">
-                      <div className="field-label">取貨方式</div>
+                      <div style={{ width: "4rem" }} className="field-label">
+                        取貨方式
+                      </div>
                       <div
                         style={{
                           display: "flex",
@@ -223,7 +225,9 @@ const CheckoutPage = () => {
                       style={{ display: "flex" }}
                       className="form-group col-md-12 col-sm-12 col-xs-12"
                     >
-                      <div className="field-label">Address</div>
+                      <div style={{ width: "4rem" }} className="field-label">
+                        地址
+                      </div>
                       <div style={{ flexGrow: 1 }}>
                         <input
                           style={{
@@ -239,7 +243,6 @@ const CheckoutPage = () => {
                             min: 20,
                             max: 120,
                           })}
-                          placeholder="Street address"
                         />
                         <span className="error-message">
                           {errors.address && "Please right your address ."}
@@ -250,7 +253,9 @@ const CheckoutPage = () => {
                       style={{ display: "flex" }}
                       className="form-group col-md-12 col-sm-12 col-xs-12"
                     >
-                      <div className="field-label">First Name</div>
+                      <div style={{ width: "4rem" }} className="field-label">
+                        姓名
+                      </div>
                       <div
                         style={{
                           flexGrow: 1,
@@ -279,7 +284,9 @@ const CheckoutPage = () => {
                       style={{ display: "flex" }}
                       className="form-group col-md-12 col-sm-12 col-xs-12"
                     >
-                      <div className="field-label">Phone</div>
+                      <div style={{ width: "4rem" }} className="field-label">
+                        電話
+                      </div>
                       <div style={{ flexGrow: 1 }}>
                         <input
                           style={{
@@ -302,7 +309,9 @@ const CheckoutPage = () => {
                       style={{ display: "flex" }}
                       className="form-group col-md-12 col-sm-12 col-xs-12"
                     >
-                      <div className="field-label">Email Address</div>
+                      <div style={{ width: "4rem" }} className="field-label">
+                        信箱
+                      </div>
                       <div style={{ flexGrow: 1 }}>
                         <input
                           style={{
@@ -329,7 +338,9 @@ const CheckoutPage = () => {
                       style={{ display: "flex" }}
                       className="form-group col-md-12 col-sm-6 col-xs-12"
                     >
-                      <div className="field-label">付款方式</div>
+                      <div style={{ width: "4rem" }} className="field-label">
+                        付款方式
+                      </div>
                       <div
                         style={{
                           display: "flex",
@@ -415,7 +426,7 @@ const CheckoutPage = () => {
                                     type="radio"
                                     name="payment-group"
                                     id="payment-1"
-                                    onClick={() => checkhandle("paypal")}
+                                    onClick={() => checkhandle("line")}
                                   />
                                 </div>
                                 <label htmlFor="payment-1">LINE pay</label>
@@ -432,7 +443,7 @@ const CheckoutPage = () => {
                                     type="radio"
                                     name="payment-group"
                                     id="payment-1"
-                                    onClick={() => checkhandle("line")}
+                                    onClick={() => checkhandle("afterTake")}
                                   />
                                 </div>
                                 <label htmlFor="payment-1">取貨付款</label>
@@ -441,11 +452,12 @@ const CheckoutPage = () => {
                           </div>
                           <div>
                             <Button
+                              type="submit"
                               className="rounded"
                               style={{
                                 backgroundColor: "#D9D9D9",
                                 width: "fit-content",
-                                padding: "0.2rem 0.5rem",
+                                padding: "0.2rem 1rem",
                                 marginRight: "1rem",
                                 color: "black",
                                 border: "0",
@@ -456,35 +468,6 @@ const CheckoutPage = () => {
                             </Button>
                           </div>
                         </div>
-
-                        {cartTotal !== 0 ? (
-                          <div className="text-end">
-                            {payment === "stripe" ? (
-                              <button type="submit" className="btn-solid btn">
-                                Place Order
-                              </button>
-                            ) : (
-                              <PayPalButton
-                                amount="0.01"
-                                onSuccess={(details, data) => {
-                                  alert(
-                                    "Transaction completed by " +
-                                      details.payer.name.given_name
-                                  );
-
-                                  return fetch("/paypal-transaction-complete", {
-                                    method: "post",
-                                    body: JSON.stringify({
-                                      orderID: data.orderID,
-                                    }),
-                                  });
-                                }}
-                              />
-                            )}
-                          </div>
-                        ) : (
-                          ""
-                        )}
                       </div>
                       <span className="error-message">
                         {errors.pincode && "Required integer"}
@@ -606,37 +589,6 @@ const CheckoutPage = () => {
                             </span>
                           </li>
                         </ul>
-                      </div>
-                      <div className="payment-box">
-                        <div className="upper-box"></div>
-                        {cartTotal !== 0 ? (
-                          <div className="text-end">
-                            {payment === "stripe" ? (
-                              <button type="submit" className="btn-solid btn">
-                                Place Order
-                              </button>
-                            ) : (
-                              <PayPalButton
-                                amount="0.01"
-                                onSuccess={(details, data) => {
-                                  alert(
-                                    "Transaction completed by " +
-                                      details.payer.name.given_name
-                                  );
-
-                                  return fetch("/paypal-transaction-complete", {
-                                    method: "post",
-                                    body: JSON.stringify({
-                                      orderID: data.orderID,
-                                    }),
-                                  });
-                                }}
-                              />
-                            )}
-                          </div>
-                        ) : (
-                          ""
-                        )}
                       </div>
                     </div>
                   ) : (

@@ -73,7 +73,7 @@ const CartPage = () => {
   const arr = [
     {
       id: 1,
-      title: "trim dress",
+      title: "鹽酥雞",
       description:
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
       type: "fashion",
@@ -170,7 +170,7 @@ const CartPage = () => {
     },
     {
       id: 1,
-      title: "trim dress",
+      title: "豬血糕",
       description:
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
       type: "fashion",
@@ -274,7 +274,6 @@ const CartPage = () => {
 
   return (
     <div>
-      {wallet}
       {/* {cartItems && cartItems.length > 0 ? ( */}
       {arr && arr.length > 0 ? (
         <section className="cart-section section-b-space">
@@ -327,8 +326,8 @@ const CartPage = () => {
                               <div className="col-xs-3">
                                 <div className="qty-box">
                                   <div className="input-group">
-                                    <input
-                                      type="number"
+                                    <Input
+                                      type="text"
                                       name="quantity"
                                       onChange={(e) =>
                                         handleQtyUpdate(item, e.target.value)
@@ -373,8 +372,8 @@ const CartPage = () => {
                           <td>
                             <div className="qty-box">
                               <div className="input-group">
-                                <input
-                                  type="number"
+                                <Input
+                                  type="text"
                                   name="quantity"
                                   onChange={(e) =>
                                     handleQtyUpdate(item, e.target.value)
@@ -481,118 +480,6 @@ const CartPage = () => {
               </Col>
             </Row>
 
-<<<<<<< HEAD
-            <Row
-              style={{
-                width: "fit-content",
-                paddingTop: "1rem",
-              }}
-            >
-              <Col
-                style={{
-                  boxShadow: "1px 1px 5px 0px #000000",
-                  borderColor: "#E0E0E0",
-                  padding: 0,
-                }}
-              >
-                <div
-                  style={{
-                    width: "100%",
-                    backgroundColor: "#E0E0E0",
-                    color: "black",
-                    padding: "0.5rem",
-                  }}
-                >
-                  <h3 style={{ color: "black", fontWeight: "bold" }}>
-                    超值加購
-                  </h3>
-                </div>
-                <div
-                  style={{
-                    backgroundColor: "white",
-                  }}
-                >
-                  <ul style={{ padding: "1rem" }}>
-                    <li
-                      style={{
-                        display: "flex",
-                        border: "0 0 1px 0 solid",
-                        borderBottom: "1px solid #E0E0E0",
-                        paddingBottom: "1rem",
-                        //判斷下面有沒其他物品
-                        marginBottom: "1rem",
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          marginRight: "1rem",
-                        }}
-                      >
-                        <input className="rounded" type="checkBox"></input>
-                      </div>
-                      <div style={{ width: "100px", marginRight: "1rem" }}>
-                        <Media
-                          style={{ width: "100%" }}
-                          src={hotProductLogo.src}
-                        />
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <div>
-                          <p>鹽酥雞</p>
-                        </div>
-                        <div
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                          }}
-                        >
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "row",
-                              alignItems: "center",
-                              justifyContent: "space-around",
-                              marginRight: "1rem",
-                            }}
-                          >
-                            <Button
-                              type="number"
-                              onClick={() => handleCount(-1)}
-                            >
-                              -
-                            </Button>
-                            <div style={{ margin: "0 1rem" }} type="number">
-                              {count}
-                            </div>
-                            <Button
-                              type="number"
-                              onClick={() => handleCount(1)}
-                            >
-                              +
-                            </Button>
-                          </div>
-                          <div style={{ color: "black", fontWeight: "bold" }}>
-                            優惠價 NT$70
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </Col>
-            </Row>
-
-=======
->>>>>>> 4504d6d (update at 1129)
             <Row className="cart-buttons">
               <Col style={{ display: "flex", flexDirection: "column" }}>
                 <Link href={`/shop/three_grid`}>

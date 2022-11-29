@@ -129,10 +129,9 @@ export const MENUITEMS = [
     path: "/page/account/cart",
     // children: [{ path: "/page/account/cart", title: "cart", type: "link" }],
   },
-  // {
-  //   title: "checkout",
-  //   type: "link",
-  //   path: "/page/account/checkout",
-  //   // children: [{ path: "/page/account/cart", title: "cart", type: "link" }],
-  // },
+  {
+    title: "checkout",
+    type: "sub",
+    path: "/page/order-success",
+  },
 ];

@@ -8,7 +8,7 @@ import { Button, Media, Container, Row, Col } from "reactstrap";
 import foxLogo from "../../public/assets/images/logos/foxLogo.png";
 import LogoImage from "./common/logo";
 import search from "../../public/assets/images/icon/search.png";
-import settings from "../../public/assets/images/icon/setting.png";
+import language from "../../public/assets/images/icon/language.png";
 import cart from "../../public/assets/images/icon/cart.png";
 import { WalletContext } from "../../helpers/Wallet/WalletContext";
 import Currency from "./common/currency";
@@ -25,6 +25,20 @@ const HeaderOne = ({
   const router = useRouter();
   const walletContext = useContext(WalletContext);
   const wallet = walletContext.state.walletContext;
+  const setWallet = walletContext.setWallet;
+
+  const connectWallet = () => {
+    console.log(wallet);
+    setWallet(
+      wallet
+        ? {
+            walletContext: "",
+          }
+        : {
+            walletContext: "0xbb...e1Be",
+          }
+    );
+  };
 
   /*=====================
      Pre loader
@@ -87,18 +101,6 @@ const HeaderOne = ({
             <Col>
               <div className="main-menu">
                 <div className="menu-left">
-                  <div className="navbar">
-                    <a href={null} onClick={openNav}>
-                      <div className="bar-style">
-                        <i
-                          className="fa fa-bars sidebar-bar"
-                          aria-hidden="true"
-                        ></i>
-                      </div>
-                    </a>
-                    {/*SideBar Navigation Component*/}
-                    <SideBar />
-                  </div>
                   <div className="brand-logo">
                     <LogoImage logo={logoName} />
                   </div>
@@ -128,7 +130,7 @@ const HeaderOne = ({
                             ></i>
                           </div>
                         </li>
-                        <Currency icon={settings.src} />
+                        <Currency icon={language.src} />
                         {/*Header Cart Component */}
                         {direction === undefined ? (
                           // <></>
@@ -151,6 +153,7 @@ const HeaderOne = ({
                             <Button
                               class="rounded"
                               style={{
+                                width: "115px",
                                 position: "relative",
                                 background: "Button",
                                 backgroundColor: "#d9d9d9",
@@ -158,13 +161,7 @@ const HeaderOne = ({
                                 border: "0",
                                 paddingLeft: "1.5rem",
                               }}
-<<<<<<< HEAD
-                              src={foxLogo.src}
-                            />
-                            {wallet ? wallet : "連結錢包"}
-                          </Button>
-=======
-                              onClick={() => setIsConnected(!isConnected)}
+                              onClick={connectWallet}
                             >
                               <img
                                 style={{
@@ -178,7 +175,6 @@ const HeaderOne = ({
                               {wallet ? wallet : "連結錢包"}
                             </Button>
                           </li>
->>>>>>> 4504d6d (update at 1129)
                         </div>
                       </ul>
                     </div>
