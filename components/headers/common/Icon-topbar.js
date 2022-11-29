@@ -1,12 +1,12 @@
 import React, { Fragment, useContext } from "react";
 import { Media, Container, Row, Col, Input, Form, Button } from "reactstrap";
 import CartContext from "../../../helpers/cart";
-import logo from "../../../public/assets/images/icon/logo.png";
-import like from "../../../public/assets/images/icon/like.png";
-import user from "../../../public/assets/images/icon/users.png";
+// import logo from "../../../public/assets/images/icon/logo.png";
+// import like from "../../../public/assets/images/icon/like.png";
+// import user from "../../../public/assets/images/icon/users.png";
 import Link from "next/link";
-import search from "../../../public/assets/images/icon/search.png";
-import settings from "../../../public/assets/images/icon/setting.png";
+// import search from "../../../public/assets/images/icon/search.png";
+// import settings from "../../../public/assets/images/icon/setting.png";
 import cart from "../../../public/assets/images/icon/shopping-cart.png";
 import Currency from "../common/currency";
 import CartContainer from "../../containers/CartContainer";
@@ -60,7 +60,8 @@ const IconTopbar = () => {
                 <div className="brand-logo mobile-logo">
                   <a href={null}>
                     <Media
-                      src={logo.src}
+                      // src={logo.src}
+                      src={""}
                       className="img-fluid blur-up lazyload"
                       alt=""
                     />

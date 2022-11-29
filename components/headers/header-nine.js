@@ -6,7 +6,7 @@ import search from "../../public/assets/images/icon/search.png";
 import settings from "../../public/assets/images/icon/setting.png";
 import { Media, Container, Row, Col } from "reactstrap";
 import CartContainer from "../containers/CartContainer";
-import cart from "../../public/assets/images/icon/Add-to-cart.png";
+// import cart from "../../public/assets/images/icon/Add-to-cart.png";
 import Currency from "./common/currency";
 import SearchOverlay from "./common/search-overlay";
 
@@ -52,7 +52,8 @@ const HeaderNine = ({ logoName }) => {
                           </div>
                         </li>
                         <Currency icon={settings.src} />
-                        <CartContainer icon={cart.src} />
+                        {/* <CartContainer icon={cart.src} /> */}
+                        <CartContainer icon={""} />
                       </ul>
                     </div>
                   </div>

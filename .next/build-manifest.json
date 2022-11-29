@@ -24,23 +24,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
-    ],
-    "/page/account/cart": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/page/account/cart.js"
-    ],
-<<<<<<< HEAD
-    "/product-details/thumbnail_outside": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/product-details/thumbnail_outside.js"
-=======
-    "/shop/three_grid": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/shop/three_grid.js"
->>>>>>> 4504d6d (update at 1129)
     ]
   },
   "ampFirstPages": []

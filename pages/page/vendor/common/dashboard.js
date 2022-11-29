@@ -38,17 +38,17 @@ import { apexPieChart, lineChart1 } from "../../../../data/vendorData";
 
 const SummaryData = [
   {
-    img: '/assets/images/icon/dashboard/order.png',
+    img: "/assets/images/icon/dashboard/order.png",
     title: "25",
     desc: "Total Products",
   },
   {
-    img: '/assets/images/icon/dashboard/sale.png',
+    img: "/assets/images/icon/dashboard/sale.png",
     title: "12500",
     desc: "Total Sales",
   },
   {
-    img: '/assets/images/icon/dashboard/homework.png',
+    img: "/assets/images/icon/dashboard/homework.png",
     title: "50",
     desc: "Order Pending",
   },
