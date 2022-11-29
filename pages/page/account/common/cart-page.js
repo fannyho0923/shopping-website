@@ -4,6 +4,7 @@ import CartContext from "../../../../helpers/cart";
 import hotProductLogo from "../../../../public/assets/images/logos/hotProductLogo.png";
 import { Container, Row, Col, Media, Input, Button } from "reactstrap";
 import { CurrencyContext } from "../../../../helpers/Currency/CurrencyContext";
+import { WalletContext } from "../../../../helpers/Wallet/WalletContext";
 import cart from "../../../../public/assets/images/icon-empty-cart.png";
 
 const CartPage = () => {
@@ -13,10 +14,26 @@ const CartPage = () => {
   const symbol = curContext.state.symbol;
   const total = context.cartTotal;
   const removeFromCart = context.removeFromCart;
+  const walletContext = useContext(WalletContext);
+  const wallet = walletContext.state.walletContext;
+  const setWallet = walletContext.setWallet;
   const [quantity, setQuantity] = useState(1);
   const [quantityError, setQuantityError] = useState(false);
   const [count, setCount] = useState(0);
   const updateQty = context.updateQty;
+
+  const connectWallet = () => {
+    console.log(wallet);
+    setWallet(
+      wallet
+        ? {
+            walletContext: "",
+          }
+        : {
+            walletContext: "0xbb...e1Be",
+          }
+    );
+  };
 
   const handleCount = (i) => {
     if (count <= 0 && i < 1) {
@@ -256,6 +273,7 @@ const CartPage = () => {
 
   return (
     <div>
+      {wallet}
       {/* {cartItems && cartItems.length > 0 ? ( */}
       {arr && arr.length > 0 ? (
         <section className="cart-section section-b-space">
@@ -450,7 +468,7 @@ const CartPage = () => {
                         <p>鹽酥雞</p>
                         <p>NT$70</p>
                         <Button
-                          class="rounded"
+                          className="rounded"
                           style={{ backgroundColor: "black", color: "white" }}
                         >
                           加入購物車
@@ -511,7 +529,7 @@ const CartPage = () => {
                           marginRight: "1rem",
                         }}
                       >
-                        <input class="rounded" type="checkBox"></input>
+                        <input className="rounded" type="checkBox"></input>
                       </div>
                       <div style={{ width: "100px", marginRight: "1rem" }}>
                         <Media
@@ -581,8 +599,6 @@ const CartPage = () => {
                       color: "white",
                       padding: "0.5rem 1.5rem",
                     }}
-
-                    // className="btn btn-solid"
                   >
                     繼續購物
                   </a>
@@ -596,68 +612,71 @@ const CartPage = () => {
                     請輸入優惠卷代碼。
                   </p>
                   <div style={{ display: "flex", justifyContent: "center" }}>
-                    <Link href={`/shop/left_sidebar`}>
-                      <Button
-                        style={{
-                          width: "fit-content",
-                          marginTop: "0.2rem",
-                          backgroundColor: "#003366",
-                          fontWeight: 400,
-                        }}
-                        className="rounded"
-                      >
-                        連結錢包
-                      </Button>
-                    </Link>
+                    {/* <Link href={`/shop/left_sidebar`}> */}
+                    <Button
+                      style={{
+                        width: "fit-content",
+                        marginTop: "0.2rem",
+                        backgroundColor: "#003366",
+                        fontWeight: 400,
+                      }}
+                      className="rounded"
+                      onClick={connectWallet}
+                    >
+                      連結錢包
+                    </Button>
+                    {/* </Link> */}
                   </div>
                 </div>
                 {/* 已連結錢包 */}
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    padding: "0 4rem",
-                    marginTop: "1rem",
-                  }}
-                >
-                  <p>請選擇優惠卷</p>
-                  <div style={{ width: "fit-content" }}>
-                    {arr2.map((item) => (
-                      <Button
-                        class="rounded-pill"
-                        style={{
-                          backgroundColor: "#F4F3F3",
-                          color: "black",
-                          border: "0",
-                          display: "flex",
-                          width: "100%",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                          padding: "0.5rem 1rem",
-                          margin: "0.5rem",
-                        }}
-                        onFocus={() => {
-                          // 要變色#FDEEC9
-                        }}
-                      >
-                        <p
+                {wallet && (
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      padding: "0 4rem",
+                      marginTop: "1rem",
+                    }}
+                  >
+                    <p>請選擇優惠卷</p>
+                    <div style={{ width: "fit-content" }}>
+                      {arr2.map((item) => (
+                        <Button
+                          className="rounded-pill"
                           style={{
-                            margin: "0",
+                            backgroundColor: "#F4F3F3",
+                            color: "black",
+                            border: "0",
+                            display: "flex",
+                            width: "100%",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            padding: "0.5rem 1rem",
+                            margin: "0.5rem",
+                          }}
+                          onFocus={() => {
+                            // 要變色#FDEEC9
                           }}
                         >
-                          {item.title}
-                        </p>
-                        <p
-                          style={{
-                            margin: "0 0 0 2rem",
-                          }}
-                        >
-                          {item.des}
-                        </p>
-                      </Button>
-                    ))}
+                          <p
+                            style={{
+                              margin: "0",
+                            }}
+                          >
+                            {item.title}
+                          </p>
+                          <p
+                            style={{
+                              margin: "0 0 0 2rem",
+                            }}
+                          >
+                            {item.des}
+                          </p>
+                        </Button>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
                 {/* 判斷 */}
               </Col>
               <Col xs="6">

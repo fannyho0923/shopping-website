@@ -1,5 +1,6 @@
 {
   "name": "multikart-next",
+  "homepage": "https://fannyho0923.github.io/",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -24,6 +25,7 @@
     "bootstrap-scss": "^5.1.1",
     "deepmerge": "^4.2.2",
     "firebase": "^9.8.3",
+    "gh-pages": "^4.0.0",
     "graphql": "^16.5.0",
     "i18next": "^21.8.10",
     "i18next-browser-languagedetector": "^6.1.4",

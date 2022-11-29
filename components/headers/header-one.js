@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import NavBar from "./common/navbar";
 import SideBar from "./common/sidebar";
 import Cart from "../containers/Cart";
@@ -10,6 +10,7 @@ import LogoImage from "./common/logo";
 import search from "../../public/assets/images/icon/search.png";
 import settings from "../../public/assets/images/icon/setting.png";
 import cart from "../../public/assets/images/icon/cart.png";
+import { WalletContext } from "../../helpers/Wallet/WalletContext";
 import Currency from "./common/currency";
 import { useRouter } from "next/router";
 import SearchOverlay from "./common/search-overlay";
@@ -22,6 +23,8 @@ const HeaderOne = ({
   direction,
 }) => {
   const router = useRouter();
+  const walletContext = useContext(WalletContext);
+  const wallet = walletContext.state.walletContext;
 
   /*=====================
      Pre loader
@@ -161,7 +164,7 @@ const HeaderOne = ({
                               }}
                               src={foxLogo.src}
                             />
-                            {isConnected ? "0xbb...e1Be" : "連結錢包"}
+                            {wallet ? wallet : "連結錢包"}
                           </Button>
                         </div>
                       </ul>

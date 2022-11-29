@@ -29,6 +29,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/page/account/cart.js"
+    ],
+    "/product-details/thumbnail_outside": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/product-details/thumbnail_outside.js"
     ]
   },
   "ampFirstPages": []

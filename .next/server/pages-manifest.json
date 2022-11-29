@@ -2,5 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/page/account/cart": "pages/page/account/cart.js"
+  "/page/account/cart": "pages/page/account/cart.js",
+  "/product-details/thumbnail_outside": "pages/product-details/thumbnail_outside.js"
 }
