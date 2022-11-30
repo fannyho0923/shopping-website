@@ -29,8 +29,8 @@ const nextConfig = {
   env: {
     API_URL: "http://localhost:4000/graphql",
   },
-  basePath: "/shopping-website",
-  assetPrefix: "/shopping-website",
+  basePath: "/",
+  assetPrefix: "/",
   reactStrictMode: true,
   images: {
     loader: "akamai",
