@@ -1,1 +1,0 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[1933],{97124:function(_,n,u){(window.__NEXT_P=window.__NEXT_P||[]).push(["/product-details/product/3_col_Bottom_page",function(){return u(22340)}])}},function(_){_.O(0,[1559,6066,7747,2340,9774,2888,179],(function(){return n=97124,_(_.s=n);var n}));var n=_.O();_N_E=n}]);
