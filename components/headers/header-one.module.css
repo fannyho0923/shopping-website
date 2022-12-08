@@ -1,0 +1,77 @@
+.centeredSearch {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.centeredSearch input {
+  border: none;
+  background: none;
+  z-index: 1;
+  width: 1.5em;
+  height: 1.5em;
+  color: transparent;
+  transition: all 0.3s ease-in 0.3s;
+  font-size: 1.2em;
+  line-height: 1.2em;
+}
+
+/*hover到輸入框 游標顯示的樣式*/
+.centeredSearch input:hover {
+  cursor: pointer;
+}
+
+/*hover以後+按輸入框 游標顯示的樣式*/
+.centeredSearch input:hover:focus {
+  cursor: text;
+}
+
+.centeredSearch input:focus {
+  width: 100%;
+  outline: none;
+  background: none;
+  color: #fff;
+  padding: 2px 12px;
+  /*   border:2px solid #ff4141;
+    border-radius:1.5em;  */
+}
+
+.centeredSearch input:focus + span {
+  width: 100%;
+  height: 1.8em;
+  border: 2px solid #ff4141;
+}
+
+/*按下搜尋時 放大鏡的棍棍消失*/
+.centeredSearch input:focus + span::before {
+  width: 2px;
+  opacity: 0;
+  transition: all 0.3s ease-in 0.3s;
+}
+
+/*放大鏡的圈圈*/
+.centeredSearch span {
+  z-index: -1;
+  width: 1.5em;
+  height: 1.5em;
+  border: 2px solid #fff;
+  position: absolute;
+  border-radius: 1.5em;
+  left: 0;
+  top: 0;
+}
+
+/*放大鏡的棍棍*/
+.centeredSearch span::before {
+  transition: all 0.3s ease-in 0.3s;
+  /*transform-orgin 設定旋轉基準點*/
+  transform-orgin: left top;
+  content: "";
+  position: absolute;
+  width: 0.8em;
+  height: 5px;
+  border-radius: 5px;
+  background: #fff;
+  transform: rotate(45deg) translate(1.5em, 3px);
+}

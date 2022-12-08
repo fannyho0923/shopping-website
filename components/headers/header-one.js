@@ -14,6 +14,7 @@ import { WalletContext } from "../../helpers/Wallet/WalletContext";
 import Currency from "./common/currency";
 import { useRouter } from "next/router";
 import SearchOverlay from "./common/search-overlay";
+import styles from "./header-one.module.css";
 
 const HeaderOne = ({
   logoName,
@@ -112,6 +113,14 @@ const HeaderOne = ({
                   <div>
                     <div className="icon-nav">
                       <ul style={{ display: "flex" }}>
+                        <li>
+                          <div className={styles.container}>
+                            <div className={styles.centeredSearch}>
+                              <input type="text" />
+                              <span></span>
+                            </div>
+                          </div>
+                        </li>
                         <li
                           style={{ display: "flex" }}
                           className="onhover-div mobile-search"
