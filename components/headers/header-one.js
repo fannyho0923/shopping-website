@@ -112,9 +112,7 @@ const HeaderOne = ({
               <div
                 className="main-menu"
                 style={{
-                  // backgroundColor: "black",
                   borderBottom: "1px solid #000000",
-                  // border: "2px solid #ddd",
                   marginBottom: "1rem",
                 }}
               >

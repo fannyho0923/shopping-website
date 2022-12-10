@@ -36,6 +36,7 @@ const nextConfig = {
     loader: "akamai",
     path: "",
   },
+  // pageExtensions: ["page.tsx", "page.ts", "page.jsx", "page.js"],
   // webpack(config, options) {
   //   config.module.rules.push({
   //     test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
