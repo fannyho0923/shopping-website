@@ -1,15 +1,18 @@
 export const MENUITEMS = [
   {
     title: "Home",
+    id: "locales.home.text",
     type: "link",
   },
   {
     title: "Menu",
+    id: "locales.menu.text",
     type: "link",
     path: "/page/menu",
   },
   {
     title: "Products",
+    id: "locales.products.text",
     type: "link",
     path: "/shop/three_grid",
     //will del
@@ -33,6 +36,7 @@ export const MENUITEMS = [
       },
       {
         title: "About Us",
+        id: "locales.about.text",
         children: [
           {
             path: "/product-details/thumbnail_left",
@@ -114,11 +118,13 @@ export const MENUITEMS = [
   },
   {
     title: "About Us",
+    id: "locales.about.text",
     type: "link",
     path: "/page/about-us",
   },
   {
     title: "Contact",
+    id: "locales.contact.text",
     type: "link",
     path: "/page/account/contact",
     children: [{ path: "/page/account/cart", title: "cart", type: "link" }],

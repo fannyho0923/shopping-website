@@ -32,14 +32,14 @@ const ProductTab = () => {
               <TabContent activeTab={activeTab} className="nav-material">
                 <TabPane tabId="1">
                   <p className="mb-0 pb-0">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum."
+                    內容量：85g 內容物名稱：
+                    雞、水、裹漿粉(小粉、粉、薯粉、玉米、
+                    眾香子)、酥炸粉(樹薯澱粉、麵粉)肉粉(糖、鹽、粉
+                    、L-麩酸鈉、蒜粉(蒜粉、二氧化矽)、白胡椒粉[紅薯渣粉地瓜渣
+                    粉)、青辣椒粉、黑胡椒粉、小茴香粉、胡椒粉]、五香粉肉桂
+                    粉、丁香、小茴香、八角、甘草粉)、品質改良劑[焦磷酸鈉(無水)
+                    、多磷酸鈉]、辣椒粉、百草粉肉、丁香、山奈、甘草、小茴香
+                    )、香料。
                   </p>
                 </TabPane>
               </TabContent>

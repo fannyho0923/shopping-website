@@ -23,7 +23,6 @@ const CartPage = () => {
   const updateQty = context.updateQty;
 
   const connectWallet = () => {
-    console.log(wallet);
     setWallet(
       wallet
         ? {
@@ -85,6 +84,7 @@ const CartPage = () => {
       discount: "40",
       stock: 5,
       new: true,
+      qty: 2,
       tags: ["new", "s", "m", "yellow", "white", "pink", "nike"],
       variants: [
         {
@@ -182,6 +182,7 @@ const CartPage = () => {
       discount: "40",
       stock: 5,
       new: true,
+      qty: 1,
       tags: ["new", "s", "m", "yellow", "white", "pink", "nike"],
       variants: [
         {
@@ -392,7 +393,10 @@ const CartPage = () => {
                           <td>
                             <h2 className="td-color">
                               {symbol}
-                              {item.total}
+                              {/* {item.total} */}
+                              {item.qty *
+                                (item.price -
+                                  (item.price * item.discount) / 100)}
                             </h2>
                           </td>
                         </tr>

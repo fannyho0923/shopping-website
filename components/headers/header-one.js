@@ -8,6 +8,8 @@ import { Button, Media, Container, Row, Col } from "reactstrap";
 import foxLogo from "../../public/assets/images/logos/foxLogo.png";
 import LogoImage from "./common/logo";
 import search from "../../public/assets/images/icon/search.png";
+import cartIcon from "../../public/assets/images/icon/cartIcon.png";
+import langIcon from "../../public/assets/images/icon/langIcon.png";
 import language from "../../public/assets/images/icon/language.png";
 import cart from "../../public/assets/images/icon/cart.png";
 import { WalletContext } from "../../helpers/Wallet/WalletContext";
@@ -21,15 +23,21 @@ const HeaderOne = ({
   headerClass,
   topClass,
   noTopBar,
-  direction,
+  // direction,
+  lang,
+  locale,
+  setLocale,
 }) => {
+  console.log("lang");
+  console.log(direction);
+  // console.log(lang);
+  console.log("lang");
   const router = useRouter();
   const walletContext = useContext(WalletContext);
   const wallet = walletContext.state.walletContext;
   const setWallet = walletContext.setWallet;
 
   const connectWallet = () => {
-    console.log(wallet);
     setWallet(
       wallet
         ? {
@@ -45,6 +53,7 @@ const HeaderOne = ({
      Pre loader
      ==========================*/
   const [isConnected, setIsConnected] = useState(false);
+  const [direction, setDirection] = useState(false);
   useEffect(() => {
     setTimeout(function () {
       document.querySelectorAll(".loader-wrapper").style = "display:none";
@@ -100,7 +109,15 @@ const HeaderOne = ({
         <Container>
           <Row>
             <Col>
-              <div className="main-menu">
+              <div
+                className="main-menu"
+                style={{
+                  // backgroundColor: "black",
+                  borderBottom: "1px solid #000000",
+                  // border: "2px solid #ddd",
+                  marginBottom: "1rem",
+                }}
+              >
                 <div className="menu-left">
                   <div className="brand-logo">
                     <LogoImage logo={logoName} />
@@ -112,21 +129,25 @@ const HeaderOne = ({
 
                   <div>
                     <div className="icon-nav">
-                      <ul style={{ display: "flex" }}>
-                        <li>
+                      <ul style={{ display: "flex", paddingLeft: "8rem" }}>
+                        <li
+                          // style={{
+                          //   // display: "flex",
+                          //   // width: "100px",
+                          //   backgroundColor: "pink",
+                          //   // float: "right",
+                          //   // padding: 0,
+                          // }}
+                          className="onhover-div mobile-search"
+                        >
                           <div className={styles.container}>
                             <div className={styles.centeredSearch}>
                               <input type="text" />
                               <span></span>
                             </div>
                           </div>
-                        </li>
-                        <li
-                          style={{ display: "flex" }}
-                          className="onhover-div mobile-search"
-                        >
-                          <SearchOverlay />
-                          <div>
+                          {/* <SearchOverlay /> */}
+                          {/* <div>
                             <Media
                               src={search.src}
                               onClick={openSearch}
@@ -137,16 +158,28 @@ const HeaderOne = ({
                               className="fa fa-search"
                               onClick={openSearch}
                             ></i>
-                          </div>
+                          </div> */}
                         </li>
-                        <Currency icon={language.src} />
+                        <Currency
+                          lang={lang}
+                          locale={locale}
+                          setLocale={setLocale}
+                          icon={langIcon.src}
+                          onClick={() => {
+                            setDirection(true);
+                          }}
+                        />
                         {/*Header Cart Component */}
-                        {direction === undefined ? (
-                          // <></>
-                          <CartContainer layout={direction} icon={cart.src} />
+                        {/* {direction === undefined ? (
+                          <CartContainer
+                            layout={direction}
+                            icon={cartIcon.src}
+                          />
                         ) : (
-                          <Cart layout={direction} icon={cart.src} />
-                        )}
+                          // <></>
+                          <Cart layout={"right"} icon={cartIcon.src} />
+                        )} */}
+                        <Cart layout={"right"} icon={cartIcon.src} />
                         <div
                           style={{
                             display: "flex",

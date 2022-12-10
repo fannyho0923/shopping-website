@@ -46,7 +46,7 @@ const CheckoutPage = () => {
   const cartItems = [
     {
       id: 1,
-      title: "trim dress",
+      title: "t師園鹽酥雞",
       description:
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.",
       type: "fashion",

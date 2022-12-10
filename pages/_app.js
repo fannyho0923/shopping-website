@@ -14,6 +14,9 @@ import { WalletContextProvider } from "../helpers/Wallet/WalletContext";
 import Helmet from "react-helmet";
 import { ApolloProvider } from "@apollo/client";
 import { useApollo } from "../helpers/apollo";
+import { IntlProvider } from "react-intl";
+import en from "./i18n/en.js";
+import zh from "./i18n/zh.js";
 
 export default function MyApp({ Component, pageProps }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -32,59 +35,81 @@ export default function MyApp({ Component, pageProps }) {
       clearTimeout(timer);
     };
   }, []);
+
+  // 設定語系
+  const [locale, setLocale] = useState("en");
+  useEffect(() => {
+    if (navigator.language) {
+      setLocale(navigator.language);
+    }
+  }, []);
+  const lang = ["zh", "en"];
+
   return (
     <>
-      <ApolloProvider client={apolloClient}>
-        {isLoading ? (
-          <div className="loader-wrapper">
-            {url === "Christmas" ? (
-              <div id="preloader"></div>
-            ) : (
-              <div className="loader"></div>
-            )}
-          </div>
-        ) : (
-          <>
-            {/* <MessengerCustomerChat
+      <IntlProvider
+        {...{ locale }}
+        key={locale}
+        defaultLocale={"zh"}
+        messages={(locale.includes("zh") && zh) || en}
+      >
+        <ApolloProvider client={apolloClient}>
+          {isLoading ? (
+            <div className="loader-wrapper">
+              {url === "Christmas" ? (
+                <div id="preloader"></div>
+              ) : (
+                <div className="loader"></div>
+              )}
+            </div>
+          ) : (
+            <>
+              {/* <MessengerCustomerChat
             pageId="2123438804574660"
             appId="406252930752412"
             htmlRef="https://connect.facebook.net/en_US/sdk.js"
           /> */}
-            <Helmet>
-              <meta
-                name="viewport"
-                content="width=device-width, initial-scale=1"
-              />
-              {/* <Head>
+              <Helmet>
+                <meta
+                  name="viewport"
+                  content="width=device-width, initial-scale=1"
+                />
+                {/* <Head>
               <link rel="icon" type="image/x-icon" href={favicon} />
             </Head> */}
-              <title>
-                Multikart - Multi-purpopse E-commerce React Template
-              </title>
-            </Helmet>
-            <div>
-              <SettingProvider>
-                <CompareContextProvider>
-                  <CurrencyContextProvider>
-                    <WalletContextProvider>
-                      <CartContextProvider>
-                        <WishlistContextProvider>
-                          <FilterProvider>
-                            <Component {...pageProps} />
-                          </FilterProvider>
-                        </WishlistContextProvider>
-                      </CartContextProvider>
-                    </WalletContextProvider>
-                  </CurrencyContextProvider>
-                  <ThemeSettings />
-                </CompareContextProvider>
-              </SettingProvider>
-              <ToastContainer />
-              <TapTop />
-            </div>
-          </>
-        )}
-      </ApolloProvider>
+                <title>
+                  Multikart - Multi-purpopse E-commerce React Template
+                </title>
+              </Helmet>
+              <div>
+                <SettingProvider>
+                  <CompareContextProvider>
+                    <CurrencyContextProvider>
+                      <WalletContextProvider>
+                        <CartContextProvider>
+                          <WishlistContextProvider>
+                            <FilterProvider>
+                              <Component
+                                setLocale={setLocale}
+                                lang={lang}
+                                locale={locale}
+                                {...pageProps}
+                              />
+                            </FilterProvider>
+                          </WishlistContextProvider>
+                        </CartContextProvider>
+                      </WalletContextProvider>
+                    </CurrencyContextProvider>
+                    <ThemeSettings />
+                  </CompareContextProvider>
+                </SettingProvider>
+                <ToastContainer />
+                <TapTop />
+              </div>
+            </>
+          )}
+        </ApolloProvider>
+      </IntlProvider>
     </>
   );
 }

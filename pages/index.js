@@ -7,7 +7,7 @@ import HeaderOne from "../components/headers/header-one";
 import Helmet from "react-helmet";
 import MasterFooter from "../components/footers/common/MasterFooter";
 
-const Fashion = () => {
+const Fashion = (props) => {
   return (
     <>
       <Helmet>
@@ -18,7 +18,12 @@ const Fashion = () => {
           href={"/assets/images/favicon/1.png"}
         />
       </Helmet>
-      <HeaderOne noTopBar={true} logoName={"logo.png"} topClass="top-header" />
+      <HeaderOne
+        {...props}
+        noTopBar={true}
+        logoName={"logo.png"}
+        topClass="top-header"
+      />
       <Container>
         <div style={{ width: "100%", padding: "0" }}>
           <Media style={{ width: "100%" }} src={homeLogo.src} alt="" />

@@ -11,6 +11,9 @@ import PostLoader from "../../../components/common/PostLoader";
 import CartContext from "../../../helpers/cart";
 import { WishlistContext } from "../../../helpers/wishlist/WishlistContext";
 import { CompareContext } from "../../../helpers/Compare/CompareContext";
+import product1 from "../../../public/assets/images/product/product1.jpg";
+import product2 from "../../../public/assets/images/product/product2.jpg";
+import product3 from "../../../public/assets/images/product/product3.jpg";
 
 const GET_PRODUCTS = gql`
   query products(
@@ -106,6 +109,237 @@ const ProductList = ({ colClass, layoutList, openSidebar, noSidebar }) => {
       limit: limit,
     },
   });
+
+  const products = [
+    {
+      id: "123",
+      title: "師園鹽酥雞",
+      description: `內容量：85g
+      內容物名稱：
+      雞、水、裹漿粉(小粉、粉、薯粉、玉米、 眾香子)、酥炸粉(樹薯澱粉、麵粉)肉粉(糖、鹽、粉 、L-麩酸鈉、蒜粉(蒜粉、二氧化矽)、白胡椒粉[紅薯渣粉地瓜渣 粉)、青辣椒粉、黑胡椒粉、小茴香粉、胡椒粉]、五香粉肉桂 粉、丁香、小茴香、八角、甘草粉)、品質改良劑[焦磷酸鈉(無水) 、多磷酸鈉]、辣椒粉、百草粉肉、丁香、山奈、甘草、小茴香 )、香料。
+      `,
+      type: "123",
+      brand: "123",
+      category: "123",
+      price: "59",
+      new: "",
+      sale: "",
+      stock: 3,
+      discount: "0",
+      variants: [
+        {
+          variant_id: 101,
+          id: 1.1,
+          sku: "sku1",
+          size: "s",
+          color: "yellow",
+          image_id: 111,
+        },
+        {
+          variant_id: 102,
+          id: 1.2,
+          sku: "sku2",
+          size: "s",
+          color: "white",
+          image_id: 112,
+        },
+        {
+          variant_id: 103,
+          id: 1.3,
+          sku: "sku3",
+          size: "s",
+          color: "pink",
+          image_id: 113,
+        },
+      ],
+      images: [
+        {
+          image_id: "123",
+          id: "123",
+          alt: "123",
+          src: product1.src,
+        },
+        {
+          image_id: "123",
+          id: "123",
+          alt: "123",
+          src: product2.src,
+        },
+        {
+          image_id: "123",
+          id: "123",
+          alt: "123",
+          src: product3.src,
+        },
+      ],
+    },
+    {
+      id: "123",
+      title: "師園鹽酥雞",
+      description: "123",
+      type: "123",
+      brand: "123",
+      category: "123",
+      price: "1234",
+      new: "123",
+      sale: "1230",
+      stock: "123",
+      discount: "50",
+      variants: {
+        id: "123",
+        sku: "123",
+        size: "123",
+        color: "123",
+        image_id: "123",
+      },
+      images: [
+        {
+          image_id: "123",
+          id: "123",
+          alt: "123",
+          src: product2.src,
+        },
+        {
+          image_id: "123",
+          id: "123",
+          alt: "123",
+          src: product1.src,
+        },
+        {
+          image_id: "123",
+          id: "123",
+          alt: "123",
+          src: product3.src,
+        },
+      ],
+    },
+    {
+      id: "123",
+      title: "師園鹽酥雞",
+      description: "123",
+      type: "123",
+      brand: "123",
+      category: "123",
+      price: "1234",
+      new: "123",
+      sale: "1230",
+      stock: "123",
+      discount: "50",
+      variants: {
+        id: "123",
+        sku: "123",
+        size: "123",
+        color: "123",
+        image_id: "123",
+      },
+      images: [
+        {
+          image_id: "123",
+          id: "123",
+          alt: "123",
+          src: product3.src,
+        },
+        {
+          image_id: "123",
+          id: "123",
+          alt: "123",
+          src: product2.src,
+        },
+        {
+          image_id: "123",
+          id: "123",
+          alt: "123",
+          src: product1.src,
+        },
+      ],
+    },
+    {
+      id: "123",
+      title: "師園鹽酥雞",
+      description: `內容量：85g
+      內容物名稱：
+      雞、水、裹漿粉(小粉、粉、薯粉、玉米、 眾香子)、酥炸粉(樹薯澱粉、麵粉)肉粉(糖、鹽、粉 、L-麩酸鈉、蒜粉(蒜粉、二氧化矽)、白胡椒粉[紅薯渣粉地瓜渣 粉)、青辣椒粉、黑胡椒粉、小茴香粉、胡椒粉]、五香粉肉桂 粉、丁香、小茴香、八角、甘草粉)、品質改良劑[焦磷酸鈉(無水) 、多磷酸鈉]、辣椒粉、百草粉肉、丁香、山奈、甘草、小茴香 )、香料。
+      `,
+      type: "123",
+      brand: "123",
+      category: "123",
+      price: "59",
+      new: "",
+      sale: "",
+      stock: 3,
+      discount: "0",
+      variants: {
+        id: "123",
+        sku: "123",
+        size: "123",
+        color: "123",
+        image_id: "123",
+      },
+      images: [
+        {
+          image_id: "123",
+          id: "123",
+          alt: "123",
+          src: product1.src,
+        },
+        {
+          image_id: "123",
+          id: "123",
+          alt: "123",
+          src: product2.src,
+        },
+        {
+          image_id: "123",
+          id: "123",
+          alt: "123",
+          src: product3.src,
+        },
+      ],
+    },
+    {
+      id: "123",
+      title: "師園鹽酥雞",
+      description: `內容量：85g
+      內容物名稱：
+      雞、水、裹漿粉(小粉、粉、薯粉、玉米、 眾香子)、酥炸粉(樹薯澱粉、麵粉)肉粉(糖、鹽、粉 、L-麩酸鈉、蒜粉(蒜粉、二氧化矽)、白胡椒粉[紅薯渣粉地瓜渣 粉)、青辣椒粉、黑胡椒粉、小茴香粉、胡椒粉]、五香粉肉桂 粉、丁香、小茴香、八角、甘草粉)、品質改良劑[焦磷酸鈉(無水) 、多磷酸鈉]、辣椒粉、百草粉肉、丁香、山奈、甘草、小茴香 )、香料。
+      `,
+      type: "123",
+      brand: "123",
+      category: "123",
+      price: "59",
+      new: "",
+      sale: "",
+      stock: 3,
+      discount: "0",
+      variants: {
+        id: "123",
+        sku: "123",
+        size: "123",
+        color: "123",
+        image_id: "123",
+      },
+      images: [
+        {
+          image_id: "123",
+          id: "123",
+          alt: "123",
+          src: product1.src,
+        },
+        {
+          image_id: "123",
+          id: "123",
+          alt: "123",
+          src: product2.src,
+        },
+        {
+          image_id: "123",
+          id: "123",
+          alt: "123",
+          src: product3.src,
+        },
+      ],
+    },
+  ];
 
   const handlePagination = () => {
     setIsLoading(true);
@@ -322,7 +556,7 @@ const ProductList = ({ colClass, layoutList, openSidebar, noSidebar }) => {
               <div className={`product-wrapper-grid ${layout}`}>
                 <Row>
                   {/* Product Box */}
-                  {!data ||
+                  {/* {!data ||
                   !data.products ||
                   !data.products.items ||
                   data.products.items.length === 0 ||
@@ -347,6 +581,7 @@ const ProductList = ({ colClass, layoutList, openSidebar, noSidebar }) => {
                         </div>
                       </Col>
                     ) : (
+                      // <></>
                       <div className="row mx-0 margin-default mt-4">
                         <div className="col-xl-3 col-lg-4 col-6">
                           <PostLoader />
@@ -387,7 +622,31 @@ const ProductList = ({ colClass, layoutList, openSidebar, noSidebar }) => {
                         </div>
                       </div>
                     ))
-                  )}
+                  )} */}
+
+                  {products.map((product, i) => (
+                    <div className={grid} key={i}>
+                      <div className="product">
+                        <div>
+                          <ProductItem
+                            des={true}
+                            product={product}
+                            symbol={symbol}
+                            cartClass="cart-info cart-wrap"
+                            // addCompare={() =>
+                            //   compareContext.addToCompare(product)
+                            // }
+                            // addWishlist={() =>
+                            //   wishlistContext.addToWish(product)
+                            // }
+                            addCart={() =>
+                              cartContext.addToCart(product, quantity)
+                            }
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </Row>
               </div>
               <div className="section-t-space">

@@ -14,7 +14,7 @@ const ProductItem = ({
   addWishlist,
   cartClass,
   productDetail,
-  addCompare,
+  // addCompare,
   title,
 }) => {
   // eslint-disable-next-line
@@ -44,7 +44,8 @@ const ProductItem = ({
 
   const clickProductDetail = () => {
     const titleProps = product.title.split(" ").join("");
-    router.push(`/product-details/${product.id}` + "-" + `${titleProps}`);
+    // router.push(`/product-details/${product.id}` + "-" + `${titleProps}`);
+    router.push(`/product-details/thumbnail_outside`);
   };
 
   const variantChangeByColor = (imgId, product_images) => {
@@ -64,6 +65,7 @@ const ProductItem = ({
         <div className="front" onClick={clickProductDetail}>
           <Media
             src={`${image ? image : product.images[0].src}`}
+            // src=""
             className="img-fluid"
             alt=""
           />
@@ -88,13 +90,13 @@ const ProductItem = ({
           <button title="Add to cart" onClick={addCart}>
             <i className="fa fa-shopping-cart" aria-hidden="true"></i>
           </button>
-          <a href={null} title="Add to Wishlist" onClick={addWishlist}>
+          {/* <a href={null} title="Add to Wishlist" onClick={addWishlist}>
             <i className="fa fa-heart" aria-hidden="true"></i>
-          </a>
+          </a> */}
           <a href={null} title="Quick View" onClick={toggle}>
             <i className="fa fa-search" aria-hidden="true"></i>
           </a>
-          <a href={null} title="Compare" onClick={toggleCompare}>
+          {/* <a href={null} title="Compare" onClick={toggleCompare}>
             <i className="fa fa-refresh" aria-hidden="true"></i>
           </a>
           <Modal
@@ -113,6 +115,7 @@ const ProductItem = ({
                           ? image
                           : product.images[0].src
                       }`}
+                      // src=""
                       alt=""
                       className="img-fluid"
                     />
@@ -138,7 +141,7 @@ const ProductItem = ({
                 </Col>
               </Row>
             </ModalBody>
-          </Modal>
+          </Modal> */}
         </div>
         {product.images ? (
           <ul className="product-thumb-list">
@@ -186,6 +189,7 @@ const ProductItem = ({
                   src={`${
                     product.variants && image ? image : product.images[0].src
                   }`}
+                  // src=""
                   alt=""
                   className="img-fluid"
                 />

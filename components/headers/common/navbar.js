@@ -4,8 +4,9 @@ import { MENUITEMS } from "../../constant/menu";
 import { Container, Row } from "reactstrap";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/router";
+import { injectIntl } from "react-intl";
 
-const NavBar = () => {
+const NavBar = ({ intl: { formatMessage } }) => {
   const { t } = useTranslation();
   const [navClose, setNavClose] = useState({ right: "0px" });
   const router = useRouter();
@@ -142,7 +143,6 @@ const NavBar = () => {
               </div>
             </li>
             {MENUITEMS.map((menuItem, i) => {
-              console.log(menuItem);
               if (menuItem.type === "link") {
                 return (
                   <li
@@ -153,7 +153,7 @@ const NavBar = () => {
                       className="nav-link"
                       href={menuItem.path ? `${menuItem.path}` : "/"}
                     >
-                      {t(menuItem.title)}
+                      {formatMessage({ id: menuItem.id })}
                     </Link>
                   </li>
                 );
@@ -167,8 +167,8 @@ const NavBar = () => {
                   className={` ${menuItem.megaMenu ? "mega-menu" : ""}`}
                 >
                   <a className="nav-link" onClick={(e) => openMblNav(e)}>
-                    {" "}
-                    {t(menuItem.title)}
+                    {/* {t(menuItem.title)} */}
+                    {formatMessage({ id: menuItem.id })}
                     <span className="sub-arrow"></span>
                   </a>
                   {menuItem.children && !menuItem.megaMenu ? (
@@ -337,4 +337,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default injectIntl(NavBar);

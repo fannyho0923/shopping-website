@@ -185,10 +185,10 @@ const MasterFooter = ({
           </Container>
         </section>
 
-        <CopyRight
+        {/* <CopyRight
           layout={layoutClass}
           fluid={CopyRightFluid ? CopyRightFluid : ""}
-        />
+        /> */}
       </footer>
     </div>
   );

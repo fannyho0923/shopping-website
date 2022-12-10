@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useQuery } from "@apollo/client";
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 import { Media } from "reactstrap";
 import language from "../../constant/langConfig.json";
 import i18next from "../../constant/i18n";
@@ -17,7 +17,7 @@ const GET_CURRENCY = gql`
   }
 `;
 
-const Currency = ({ icon }) => {
+const Currency = ({ icon, lang, locale, setLocale }) => {
   var { data } = useQuery(GET_CURRENCY);
   const Context = useContext(CurrencyContext);
   const selectedCurrency = Context.currencyContext.selectedCurrency;
@@ -27,28 +27,36 @@ const Currency = ({ icon }) => {
   };
 
   return (
-    <li className="onhover-div mobile-setting">
+    <li
+      className="onhover-div mobile-setting"
+      onClick={() => {
+        // console.log(lang);
+        setLocale(lang.find((lang) => lang !== locale));
+        // changeLanguage(item.val);
+      }}
+    >
       <div>
         <Media src={icon} className="img-fluid" alt="" />
         <i className="fa fa-cog"></i>
       </div>
       <div className="show-div setting">
-        <h6>language</h6>
-        <ul>
+        {/* <h6>language</h6> */}
+        {/* <ul>
           {language.map((item, i) => (
             <li key={i}>
               <a
                 href={null}
                 onClick={() => {
-                  changeLanguage(item.val);
+                  setLocale(lang.find((lang) => lang !== locale));
+                  // changeLanguage(item.val);
                 }}
               >
                 {item.lang}
               </a>
             </li>
           ))}
-        </ul>
-        <h6>currency</h6>
+        </ul> */}
+        {/* <h6>currency</h6>
         <ul className="list-inline">
           {data &&
             data.getCurrency.map((cur, i) => (
@@ -58,7 +66,7 @@ const Currency = ({ icon }) => {
                 </div>
               </li>
             ))}
-        </ul>
+        </ul> */}
       </div>
     </li>
   );

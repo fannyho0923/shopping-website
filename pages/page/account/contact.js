@@ -2,7 +2,7 @@ import React from "react";
 import CommonLayout from "../../../components/shop/common-layout";
 import { Container, Row, Col, Media, Form, Label, Input } from "reactstrap";
 import contactLogo from "../../../public/assets/images/logos/contactLogo.png";
-
+import HeaderOne from "../../../components/headers/header-one";
 const ContactDetail = ({ children }) => {
   return (
     <li style={{ display: "flex", width: "100%" }}>
@@ -43,9 +43,16 @@ const ContactDetail = ({ children }) => {
     </li>
   );
 };
-const Contact = () => {
+const Contact = (props) => {
   return (
-    <CommonLayout parent="home" title="Contact">
+    <>
+      <HeaderOne
+        {...props}
+        noTopBar={true}
+        logoName={"logo.png"}
+        topClass="top-header"
+      />
+      {/* <CommonLayout parent="home" title="Contact"> */}
       <section className="contact-page section-b-space">
         <Container>
           <Row className="section-b-space">
@@ -173,7 +180,8 @@ const Contact = () => {
           </Row>
         </Container>
       </section>
-    </CommonLayout>
+      {/* </CommonLayout> */}
+    </>
   );
 };
 

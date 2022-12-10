@@ -2,14 +2,15 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-90%, -50%);
 }
 
 .centeredSearch input {
   border: none;
   background: none;
   z-index: 1;
-  width: 1.5em;
+  width: 100%;
+  /* width: 1.5em; */
   height: 1.5em;
   color: transparent;
   transition: all 0.3s ease-in 0.3s;
@@ -28,10 +29,10 @@
 }
 
 .centeredSearch input:focus {
-  width: 100%;
+  width: 120px;
   outline: none;
   background: none;
-  color: #fff;
+  color: rgb(0, 0, 0);
   padding: 2px 12px;
   /*   border:2px solid #ff4141;
     border-radius:1.5em;  */
@@ -40,7 +41,7 @@
 .centeredSearch input:focus + span {
   width: 100%;
   height: 1.8em;
-  border: 2px solid #ff4141;
+  border: 2px solid #000000;
 }
 
 /*按下搜尋時 放大鏡的棍棍消失*/
@@ -55,7 +56,7 @@
   z-index: -1;
   width: 1.5em;
   height: 1.5em;
-  border: 2px solid #fff;
+  border: 2px solid rgb(0, 0, 0);
   position: absolute;
   border-radius: 1.5em;
   left: 0;
@@ -72,6 +73,6 @@
   width: 0.8em;
   height: 5px;
   border-radius: 5px;
-  background: #fff;
+  background: rgb(0, 0, 0);
   transform: rotate(45deg) translate(1.5em, 3px);
 }

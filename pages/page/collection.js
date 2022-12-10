@@ -9,7 +9,7 @@ import seven from "../../public/assets/images/collection/7.jpg";
 import eight from "../../public/assets/images/collection/8.jpg";
 import nine from "../../public/assets/images/collection/9.jpg";
 import eleven from "../../public/assets/images/collection/11.jpg";
-
+import HeaderOne from "../../components/headers/header-one";
 const MasterCollectionData = [
   {
     img: one,
@@ -109,9 +109,16 @@ const MasterCollection = ({ img, totalProducts, type, about, link, btn }) => {
   );
 };
 
-const Collection = () => {
+const Collection = (props) => {
   return (
-    <CommonLayout parent="home" title="collection">
+    <>
+      {/* <CommonLayout parent="home" title="collection"> */}
+      <HeaderOne
+        {...props}
+        noTopBar={true}
+        logoName={"logo.png"}
+        topClass="top-header"
+      />
       <section className="collection section-b-space ratio_square ">
         <Container>
           <Row className="partition-collection">
@@ -146,7 +153,8 @@ const Collection = () => {
           </Row>
         </Container>
       </section>
-    </CommonLayout>
+      {/* </CommonLayout> */}
+    </>
   );
 };
 

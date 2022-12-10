@@ -20,6 +20,9 @@ import { CurrencyContext } from "../../../helpers/Currency/CurrencyContext";
 import CountdownComponent from "../../../components/common/widgets/countdownComponent";
 import ImageZoom from "../common/image-zoom";
 import CartContext from "../../../helpers/cart";
+import product1 from "../../../public/assets/images/product/product1.jpg";
+import product2 from "../../../public/assets/images/product/product2.jpg";
+import product3 from "../../../public/assets/images/product/product3.jpg";
 
 const GET_SINGLE_PRODUCTS = gql`
   query product($id: Int!) {
@@ -50,6 +53,120 @@ const GET_SINGLE_PRODUCTS = gql`
   }
 `;
 
+const AddOther = () => {
+  const [count, setCount] = useState(0);
+  const handleCount = (i) => {
+    if (count <= 0 && i < 1) {
+      return setCount(0);
+    }
+    setCount(count + i);
+  };
+  return (
+    <Row
+      style={{
+        width: "fit-content",
+        paddingTop: "1rem",
+      }}
+    >
+      <Col
+        style={{
+          boxShadow: "1px 1px 5px 0px #000000",
+          borderColor: "#E0E0E0",
+          padding: 0,
+        }}
+      >
+        <div
+          style={{
+            width: "100%",
+            backgroundColor: "#E0E0E0",
+            color: "black",
+            padding: "0.5rem",
+          }}
+        >
+          <h3 style={{ color: "black", fontWeight: "bold" }}>超值加購</h3>
+        </div>
+        <div
+          style={{
+            backgroundColor: "white",
+          }}
+        >
+          <ul style={{ padding: "1rem" }}>
+            <li
+              style={{
+                display: "flex",
+                border: "0 0 1px 0 solid",
+                borderBottom: "1px solid #E0E0E0",
+                paddingBottom: "1rem",
+                //判斷下面有沒其他物品
+                marginBottom: "1rem",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginRight: "1rem",
+                }}
+              >
+                <input className="rounded" type="checkBox"></input>
+              </div>
+              <div style={{ width: "100px", marginRight: "1rem" }}>
+                <Media style={{ width: "100%" }} src={hotProductLogo.src} />
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                }}
+              >
+                <div>
+                  <p>鹽酥雞</p>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "space-around",
+                      marginRight: "1rem",
+                    }}
+                  >
+                    <Button type="number" onClick={() => handleCount(-1)}>
+                      -
+                    </Button>
+                    <div style={{ margin: "0 1rem" }} type="number">
+                      {count}
+                    </div>
+                    <Button type="number" onClick={() => handleCount(1)}>
+                      +
+                    </Button>
+                  </div>
+                  <div
+                    style={{
+                      color: "black",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    優惠價 NT$70
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </Col>
+    </Row>
+  );
+};
+
 const OutsideImagePage = () => {
   const context = useContext(CartContext);
   const addToCart = context.addToCart;
@@ -59,7 +176,6 @@ const OutsideImagePage = () => {
   const slider1 = useRef();
   const slider2 = useRef();
   const [modal, setModal] = useState(false);
-  const [count, setCount] = useState(0);
   const toggle = () => setModal(!modal);
   const [open, setOpen] = useState(false);
   const stock = context.stock;
@@ -77,23 +193,18 @@ const OutsideImagePage = () => {
     setQuantity(parseInt(e.target.value));
   };
 
-  const handleCount = (i) => {
-    if (count <= 0 && i < 1) {
-      return setCount(0);
-    }
-    setCount(count + i);
-  };
-
   // var { loading, data } = useQuery(GET_SINGLE_PRODUCTS, {
   //   variables: {
   //     id: 1,
   //   },
   // });
   // console.log(data);
-  const data = {
-    id: "12345",
-    title: "12345",
-    description: "12345",
+  const product = {
+    id: "師園鹽酥雞",
+    title: "師園鹽酥雞",
+    description: `使用臺灣產冷藏雞肉。
+      真實還原師園店鋪口味。
+      `,
     type: "12345",
     brand: "12345",
     category: "12345",
@@ -102,17 +213,43 @@ const OutsideImagePage = () => {
     // sale:'12345',
     discount: 90,
     stock: 3,
-    // vari,nts {
-    //   id
-    //   color
-    //   image_id
-    //   variant_id
-    //   size
-    // }
-    // images {
-    //   image_id
-    //   src
-    // }
+    variants: [
+      {
+        id: "123",
+        color: "",
+        image_id: "",
+        variant_id: "",
+        size: "",
+      },
+      {
+        id: "123",
+        color: "",
+        image_id: "",
+        variant_id: "",
+        size: "",
+      },
+      {
+        id: "123",
+        color: "",
+        image_id: "",
+        variant_id: "",
+        size: "",
+      },
+    ],
+    images: [
+      {
+        image_id: "12345",
+        src: product1.src,
+      },
+      {
+        image_id: "12345",
+        src: product2.src,
+      },
+      {
+        image_id: "12345",
+        src: product3.src,
+      },
+    ],
   };
 
   var products = {
@@ -135,7 +272,7 @@ const OutsideImagePage = () => {
       nav1: slider1.current,
       nav2: slider2.current,
     });
-  }, [data]);
+  }, []);
 
   const changeColorVar = (img_id) => {
     slider2.current.slickGoTo(img_id);
@@ -169,19 +306,30 @@ const OutsideImagePage = () => {
                         <ImageZoom image={vari} />
                       </div>
                     ))} */}
+                {product.variants
+                  ? product.images.map((vari, index) => (
+                      <div key={index}>
+                        <ImageZoom image={vari} />
+                      </div>
+                    ))
+                  : product.images.map((vari, index) => (
+                      <div key={index}>
+                        <ImageZoom image={vari} />
+                      </div>
+                    ))}
               </Slider>
             </Col>
             <Col lg="6" className="rtl-text">
               <Row>
                 <Col>
                   <div className="product-right">
-                    <h2> {"data.product.title"} </h2>
+                    <h2> {product.title} </h2>
                     <h4>
                       <del>
                         {symbol}
-                        {"data.product.price"}
+                        {product.price}
                       </del>
-                      <span>{"data.product.discount"}% off</span>
+                      <span>{product.discount}% off</span>
                     </h4>
                     <h3>
                       {symbol}
@@ -312,7 +460,7 @@ const OutsideImagePage = () => {
                       </Link>
                     </div>
                     <div className="border-product">
-                      <p>{"data.product.description"}</p>
+                      <p>{product.description}</p>
                     </div>
                     <div className="border-product">
                       <h6 className="product-title">share it</h6>
@@ -335,127 +483,6 @@ const OutsideImagePage = () => {
                       <h6 className="product-title">Time Reminder</h6>
                       <CountdownComponent />
                     </div>
-                    <Row
-                      style={{
-                        width: "fit-content",
-                        paddingTop: "1rem",
-                      }}
-                    >
-                      <Col
-                        style={{
-                          boxShadow: "1px 1px 5px 0px #000000",
-                          borderColor: "#E0E0E0",
-                          padding: 0,
-                        }}
-                      >
-                        <div
-                          style={{
-                            width: "100%",
-                            backgroundColor: "#E0E0E0",
-                            color: "black",
-                            padding: "0.5rem",
-                          }}
-                        >
-                          <h3 style={{ color: "black", fontWeight: "bold" }}>
-                            超值加購
-                          </h3>
-                        </div>
-                        <div
-                          style={{
-                            backgroundColor: "white",
-                          }}
-                        >
-                          <ul style={{ padding: "1rem" }}>
-                            <li
-                              style={{
-                                display: "flex",
-                                border: "0 0 1px 0 solid",
-                                borderBottom: "1px solid #E0E0E0",
-                                paddingBottom: "1rem",
-                                //判斷下面有沒其他物品
-                                marginBottom: "1rem",
-                              }}
-                            >
-                              <div
-                                style={{
-                                  display: "flex",
-                                  alignItems: "center",
-                                  justifyContent: "center",
-                                  marginRight: "1rem",
-                                }}
-                              >
-                                <input
-                                  className="rounded"
-                                  type="checkBox"
-                                ></input>
-                              </div>
-                              <div
-                                style={{ width: "100px", marginRight: "1rem" }}
-                              >
-                                <Media
-                                  style={{ width: "100%" }}
-                                  src={hotProductLogo.src}
-                                />
-                              </div>
-                              <div
-                                style={{
-                                  display: "flex",
-                                  flexDirection: "column",
-                                  justifyContent: "space-between",
-                                }}
-                              >
-                                <div>
-                                  <p>鹽酥雞</p>
-                                </div>
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                  }}
-                                >
-                                  <div
-                                    style={{
-                                      display: "flex",
-                                      flexDirection: "row",
-                                      alignItems: "center",
-                                      justifyContent: "space-around",
-                                      marginRight: "1rem",
-                                    }}
-                                  >
-                                    <Button
-                                      type="number"
-                                      onClick={() => handleCount(-1)}
-                                    >
-                                      -
-                                    </Button>
-                                    <div
-                                      style={{ margin: "0 1rem" }}
-                                      type="number"
-                                    >
-                                      {count}
-                                    </div>
-                                    <Button
-                                      type="number"
-                                      onClick={() => handleCount(1)}
-                                    >
-                                      +
-                                    </Button>
-                                  </div>
-                                  <div
-                                    style={{
-                                      color: "black",
-                                      fontWeight: "bold",
-                                    }}
-                                  >
-                                    優惠價 NT$70
-                                  </div>
-                                </div>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </Col>
-                    </Row>
                   </div>
                   <Modal open={open} onClose={onCloseModal} center>
                     <div
@@ -497,8 +524,21 @@ const OutsideImagePage = () => {
                             </div>
                           ))
                         : ""} */}
+                      {product.variants
+                        ? product.images.map((vari, index) => (
+                            <div key={index}>
+                              <Media
+                                src={`${vari.src}`}
+                                key={index}
+                                alt={vari.alt}
+                                className="img-fluid"
+                              />
+                            </div>
+                          ))
+                        : ""}
                     </Slider>
                   </Row>
+                  <AddOther />
                 </Col>
               </Row>
             </Col>

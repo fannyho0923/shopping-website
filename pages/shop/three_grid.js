@@ -4,8 +4,8 @@ import CommonLayout from "../../components/shop/common-layout";
 import { Row, Container } from "reactstrap";
 import ProductList from "./common/productList";
 import FilterPage from "./common/filter";
-
-const ThreeGrid = () => {
+import HeaderOne from "../../components/headers/header-one";
+const ThreeGrid = (props) => {
   const [sidebarView, setSidebarView] = useState(false);
   const openCloseSidebar = () => {
     if (sidebarView) {
@@ -16,7 +16,14 @@ const ThreeGrid = () => {
   };
 
   return (
-    <CommonLayout title="collection" parent="home">
+    // <CommonLayout title="collection" parent="home">
+    <>
+      <HeaderOne
+        {...props}
+        noTopBar={true}
+        logoName={"logo.png"}
+        topClass="top-header"
+      />
       <section className="section-b-space">
         <Container>
           <Row>
@@ -28,7 +35,8 @@ const ThreeGrid = () => {
           </Row>
         </Container>
       </section>
-    </CommonLayout>
+    </>
+    // </CommonLayout>
   );
 };
 
