@@ -173,6 +173,7 @@ const OutsideImagePage = () => {
   const curContext = useContext(CurrencyContext);
   const symbol = curContext.state.symbol;
   const [state, setState] = useState({ nav1: null, nav2: null });
+  const [qty, setQty] = useState(1);
   const slider1 = useRef();
   const slider2 = useRef();
   const [modal, setModal] = useState(false);
@@ -432,7 +433,7 @@ const OutsideImagePage = () => {
                             <button
                               type="button"
                               className="btn quantity-right-plus"
-                              onClick={() => plusQty(data.product)}
+                              onClick={() => plusQty(product)}
                               data-type="plus"
                               data-field=""
                             >
