@@ -447,12 +447,13 @@ const OutsideImagePage = () => {
                       <a
                         href={null}
                         className="btn btn-solid"
-                        onClick={() => addToCart(data.product, quantity)}
+                        onClick={() => addToCart(product, quantity)}
                       >
                         add to cart
                       </a>
                       <Link href={`/page/account/checkout`}>
                         <a
+                          href={`/page/account/cart`}
                           className="btn btn-solid"
                           onClick={() => BuynowClicked(item, quantity)}
                         >
