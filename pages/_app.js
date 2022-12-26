@@ -15,8 +15,8 @@ import Helmet from "react-helmet";
 import { ApolloProvider } from "@apollo/client";
 import { useApollo } from "../helpers/apollo";
 import { IntlProvider } from "react-intl";
-import en from "./i18n/en.js";
-import zh from "./i18n/zh.js";
+import en from "../i18n/en.js";
+import zh from "../i18n/zh.js";
 
 export default function MyApp({ Component, pageProps }) {
   const [isLoading, setIsLoading] = useState(true);

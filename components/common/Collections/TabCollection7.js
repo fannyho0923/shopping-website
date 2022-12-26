@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Container, Row, Col, Media } from "reactstrap";
 import { useQuery } from "@apollo/client";
 import { gql } from "@apollo/client";
@@ -10,6 +10,7 @@ import { WishlistContext } from "../../../helpers/wishlist/WishlistContext";
 import { Tabs, Tab, TabList, TabPanel } from "react-tabs";
 import banner1 from "../../../public/assets/images/offer-banner1.jpg";
 import { CurrencyContext } from "../../../helpers/Currency/CurrencyContext";
+import { login } from "../../../apis/admin/login";
 
 const GET_PRODUCTS = gql`
   query products($type: _CategoryType!, $indexFrom: Int!, $limit: Int!) {
@@ -50,6 +51,10 @@ const TabContent = ({ data, startIndex, endIndex }) => {
   // const currency = curContext.state;
   const context = useContext(CartContext);
   const contextWishlist = useContext(WishlistContext);
+
+  useEffect(() => {
+    login({ accountId: "jasonTest", accountPw: "jasonTest" });
+  }, []);
 
   return (
     <Slider
